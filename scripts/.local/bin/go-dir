@@ -1,0 +1,35 @@
+#!bin/bash
+if [ -z "$1" ] 
+then 
+  cd
+  return
+fi
+
+PROJECT=".*$1.*";
+
+result=(`find $HOME/projects -maxdepth 2 -type d -regex $PROJECT`);
+if [ -z "$result" ]
+then 
+  result=(`find $HOME/projects -maxdepth 3 -type d -regex $PROJECT`);
+fi
+
+if [ ! -z "$result" ]
+then
+  len=${#result[@]}
+  if [ "$len" -gt 1 ]
+  then
+	  for (( i=1; i<=$len; i++ )); do echo "$i: ${result[$i]}" ; done
+    echo "Select folder: "
+    read order
+    if [ "$order" != "q" ]
+    then
+	cd ${result[$order]}
+    fi
+  else
+    cd $result
+  fi
+else
+  echo "Folder not existed"
+fi
+
+

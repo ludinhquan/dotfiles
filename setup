@@ -1,0 +1,24 @@
+#!/bin/bash
+cd $HOME
+# Install package
+sudo pacman -Sy
+sudo pacman -S - < ~/dotfiles/programs/.pacman.default
+
+# Install yay
+
+mkdir tmp -p
+cd tmp
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+cd $HOME
+
+yay -S fnm-bin xbanish brave-bin slack-desktop teams mongodb-bin
+
+# Reload fonts
+fc-cache -fv
+
+# Reload zsh shell
+source ~/dotfiles/zsh/.zshenv
+source $ZDOTDIR/.zshrc

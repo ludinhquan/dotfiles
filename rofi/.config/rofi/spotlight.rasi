@@ -1,0 +1,56 @@
+* {
+    background-color: transparent;
+    background: #002b36b0;
+    background: #657B83dd;
+    foreground: #FFFFFF;
+    background-alt: #85ADD6;
+    foreground-alt: #FFFFFF;
+    border-color: @background;
+    border-color: @background;
+    spacing: 2;
+}
+
+* {
+  border-color: @border-color;
+  text-color:   @foreground;
+  spacing:      0;
+  width:        500px;
+  font:         "Fira Code 10";
+}
+
+window{
+ height: 20%;
+ }
+
+mainbox{
+    children: [inputbar, message, listview];
+    margin: 0 0 -4px 0;
+}
+
+inputbar {
+  children: [entry];
+  background-color: @background;
+  padding: 8px 5px;
+}
+
+listview {
+  cycle: true;
+  dynamic: true;
+}
+
+
+element-text{
+  margin: 5px 5px;
+}
+
+element {
+  padding: 4px;
+  text-color: @background-alt;
+}
+
+element selected {
+  background-color: @background-alt; 
+  text-color: @foreground-alt;
+}
+
+

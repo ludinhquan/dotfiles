@@ -1,0 +1,10 @@
+read "USER?Username: "
+read "EMAIL?Email: "
+
+git config --local pull.rebase false 
+git config --local user.name "$USER";
+git config --local user.email "$EMAIL";
+git config --local credential.username "$USER";
+git config --local credential.helper "cache --timeout=1000000";
+
+rm git-config

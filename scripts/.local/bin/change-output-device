@@ -1,0 +1,16 @@
+#!/bin/sh 
+
+output_laptop="output:analog-stereo+input:analog-stereo"
+output_hdmi="output:hdmi-stereo-extra1+input:analog-stereo"
+
+activeProfile=$(pactl list | grep 'Active Profile:' | grep -o "out.*") 
+
+if [ "$activeProfile" = "$output_hdmi" ] 
+then
+  profile=$output_laptop 
+else
+  profile=$output_hdmi
+fi
+
+echo $profile > ~/tmp/log
+pacmd set-card-profile 0 $profile

@@ -1,0 +1,12 @@
+#!/bin/sh 
+img="/tmp/lock.png"
+scrot -o $img
+#convert $img -scale 10% -scale 1000% $img
+
+# Blur image
+convert $img -blur 0x5 900% $img
+# convert $img $icon -gravity center -composite $img
+
+#i3lock -u -i $img
+i3lock -e -f --nofork -i $img
+rm $img

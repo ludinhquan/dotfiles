@@ -1,0 +1,10 @@
+.git
+robo3t
+autoload
+bundle
+plugin
+awesome-wm-widgets
+curl.http
+share
+!share/fonts
+db.vim
