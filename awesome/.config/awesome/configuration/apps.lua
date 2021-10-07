@@ -24,7 +24,7 @@ return {
     -- Network Manager Applet
     "nm-applet --indicator",
     -- Bluetooth
-    "blueman-tray",
+    "blueman-applet",
     -- Audio
     "pasystray",
     "ibus-daemon -drxR",
