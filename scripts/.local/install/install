@@ -14,7 +14,7 @@ mount /dev/sda1 /mnt/boot
 mkdir /mnt/home
 mount /dev/sda3 /mnt/home
 
-pacstrap /mnt base base-devel linux linux-firmware vim intel-ucode
+pacstrap /mnt base base-devel linux linux-firmware vim
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
