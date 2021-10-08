@@ -43,7 +43,8 @@ jq
 postgresql
 ranger
 libreoffice-still
-pasystray flameshot
+pasystray
+flameshot
 xorg-fonts-75dpi
 xorg-fonts-100dpi
 xorg-fonts-misc

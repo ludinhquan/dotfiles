@@ -22,3 +22,5 @@ fc-cache -fv
 # Reload zsh shell
 source ~/dotfiles/zsh/.zshenv
 source $ZDOTDIR/.zshrc
+
+systemctl enable lightdm
