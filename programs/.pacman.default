@@ -52,5 +52,6 @@ xorg-fonts-misc
 adobe-source-han-sans-otc-fonts
 ttf-dejavu
 ttf-liberation
+nerd-fonts-complete
 autorandr
 github-cli

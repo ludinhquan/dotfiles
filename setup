@@ -21,5 +21,12 @@ fc-cache -fv
 # Create symlink
 cd ~/dotfiles
 stow */
+stow -D programs
+
+source ~/dotfiles/zsh/.zshenv
+source ~/dotfiles/zsh/.config/zsh/.zshrc
+
+sudo chsh -s "$(command -v zsh)" "${USER}"
 
 systemctl enable lightdm
+
