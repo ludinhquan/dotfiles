@@ -13,7 +13,14 @@ makepkg -si
 
 cd $HOME
 
-yay -S fnm-bin xbanish brave-bin slack-desktop teams mongodb-bin
+yay -S fnm-bin
+yay -S xbanish
+yay -S brave-bin
+yay -S slack-desktop
+yay -S teams
+yay -S mongodb-bin
+yay -S nerd-fonts-fira-code
+yay -S picom-git
 
 # Reload fonts
 fc-cache -fv

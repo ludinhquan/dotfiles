@@ -22,4 +22,4 @@ setxkbmap -option caps:escape
 # xrdb ~/.Xresources
 source ~/.zshenv
 
-autorandr --load extern
+autorandr --load hdmi

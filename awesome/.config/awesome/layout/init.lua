@@ -17,13 +17,13 @@ awful.screen.connect_for_each_screen(
       s.workspace_panel = workspace_panel(s, true)
       s.date_panel = date_panel(s, true)
       s.systemtray_panel = systemtray_panel(s, true)
-     s.volume_panel = volume_panel(s, true)
+      s.volume_panel = volume_panel(s, true)
     else
-      s.mode_panel = mode_panel(s, false)
-      s.workspace_panel = workspace_panel(s, false)
-      s.tasklist_panel = tasklist_panel(s, false)
-      s.date_panel = date_panel(s, false)
-      s.systemtray_panel = systemtray_panel(s, false)
+      -- s.mode_panel = mode_panel(s, true)
+      s.workspace_panel = workspace_panel(s, true)
+      s.tasklist_panel = tasklist_panel(s, true)
+      s.left_panel = left_panel(s)
+      s.date_panel = date_panel(s, true)
     end
   end
 )
@@ -33,15 +33,27 @@ function updateBarsVisibility()
   for s in screen do
     if s.selected_tag then
       local fullscreen = s.selected_tag.fullscreenMode
-      -- Order matter here for shadow
-      s.workspace_panel.visible = not fullscreen
-      s.mode_panel.visible = not fullscreen
-      s.tasklist_panel.visible = not fullscreen
-      s.date_panel.visible = not fullscreen
-      s.systemtray_panel.visible = not fullscreen
-      s.volume_panel.visible = not fullscreen
+
+      if s.volume_panel then
+        s.volume_panel.visible = not fullscreen
+      end
       if s.left_panel then
         s.left_panel.visible = not fullscreen
+      end
+      if s.date_panel then
+        s.date_panel.visible = not fullscreen
+      end
+      if s.mode_panel then
+        s.mode_panel.visible = not fullscreen
+      end
+      if s.workspace_panel then
+        s.workspace_panel.visible = not fullscreen
+      end
+      if s.systemtray_panel then
+        s.systemtray_panel.visible = not fullscreen
+      end
+      if s.tasklist_panel then
+        s.tasklist_panel.visible = not fullscreen
       end
     end
   end

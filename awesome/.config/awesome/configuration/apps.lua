@@ -20,7 +20,7 @@ return {
   run_on_start_up = {
     -- "teams",
     -- "slack",
-    "picom -b",
+    "picom --experimental-backends",
     -- Network Manager Applet
     "nm-applet --indicator",
     -- Bluetooth

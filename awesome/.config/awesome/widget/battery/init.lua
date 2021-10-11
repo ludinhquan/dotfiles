@@ -22,7 +22,6 @@ local dpi = require('beautiful').xresources.apply_dpi
 
 local HOME = os.getenv('HOME')
 local PATH_TO_ICONS = HOME .. '/.config/awesome/widget/battery/icons/'
-
 local widget =
   wibox.widget {
   {
