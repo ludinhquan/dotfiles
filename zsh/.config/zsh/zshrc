@@ -78,3 +78,5 @@ function splitTmux(){
     tmux select-pane -t 0
 }
 
+# kubectl add autocomplete permanently to your zsh shell
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)

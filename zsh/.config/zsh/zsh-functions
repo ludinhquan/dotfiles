@@ -64,3 +64,15 @@ matrix () {
       sleep 0.05
   done | awk "$awkscript"
 }
+
+function klogs(){
+  kubectl get pods --no-headers | \
+  fzf | awk '{print $1}' | \
+  xargs -o -I % kubectl logs -f %
+}
+
+function knamespace(){
+  kubectl get namespace --no-headers | \
+  fzf | awk '{print $1}' | \
+  xargs -o -I % kubectl config set-context --current --namespace=%
+}

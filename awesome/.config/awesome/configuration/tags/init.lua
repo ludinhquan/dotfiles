@@ -49,25 +49,24 @@ local tags = {
 }
 
 awful.layout.layouts = {
-  --awful.layout.suit.tile,
+  awful.layout.suit.tile,
   awful.layout.suit.max,
-  --awful.layout.suit.floating,
 --awful.layout.suit.floating,
---awful.layout.suit.tile,
---awful.layout.suit.tile.left,
---awful.layout.suit.tile.bottom,
---awful.layout.suit.tile.top,
---awful.layout.suit.fair,
---awful.layout.suit.fair.horizontal,
---awful.layout.suit.spiral,
---awful.layout.suit.spiral.dwindle,
---awful.layout.suit.max,
---awful.layout.suit.max.fullscreen,
---awful.layout.suit.magnifier,
---awful.layout.suit.corner.nw,
---awful.layout.suit.corner.ne,
---awful.layout.suit.corner.sw,
---awful.layout.suit.corner.se,
+-- awful.layout.suit.tile,
+-- awful.layout.suit.tile.left,
+-- awful.layout.suit.tile.bottom,
+-- awful.layout.suit.tile.top,
+-- awful.layout.suit.fair,
+-- awful.layout.suit.fair.horizontal,
+-- awful.layout.suit.spiral,
+-- awful.layout.suit.spiral.dwindle,
+-- awful.layout.suit.max,
+-- awful.layout.suit.max.fullscreen,
+-- awful.layout.suit.magnifier,
+-- awful.layout.suit.corner.nw,
+-- awful.layout.suit.corner.ne,
+-- awful.layout.suit.corner.sw,
+-- awful.layout.suit.corner.se,
 }
 
 awful.screen.connect_for_each_screen(
@@ -80,7 +79,7 @@ awful.screen.connect_for_each_screen(
           icon_only = true,
           layout = awful.layout.suit.tile,
           gap_single_client = true,
-          gap = 8,
+          gap = 6,
           screen = s,
           defaultApp = tag.defaultApp,
           selected = i == 1
@@ -95,9 +94,9 @@ _G.tag.connect_signal(
   function(t)
     local currentLayout = awful.tag.getproperty(t, 'layout')
     if (currentLayout == awful.layout.suit.max) then
-      t.gap = 8
+      t.gap = 6
     else
-      t.gap = 8
+      t.gap = 6 
     end
   end
 )
