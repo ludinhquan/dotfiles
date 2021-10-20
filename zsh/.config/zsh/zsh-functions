@@ -76,3 +76,9 @@ function knamespace(){
   fzf | awk '{print $1}' | \
   xargs -o -I % kubectl config set-context --current --namespace=%
 }
+
+function kenv(){
+  find $HOME/scripts -type f | \
+  fzf | awk '{print $1}' | \
+  xargs -o -I % bash %
+}
