@@ -25,6 +25,8 @@ return {
     "nm-applet --indicator",
     -- Bluetooth
     "blueman-applet",
+
+    "xfce4-power-manager",
     -- Audio
     "pasystray",
     "ibus-daemon -drxR",
