@@ -82,3 +82,9 @@ function kenv(){
   fzf | awk '{print $1}' | \
   xargs -o -I % bash %
 }
+
+function kdel(){
+  kubectl get pods --no-headers | \
+  fzf | awk '{print $1}' | \
+  xargs -o -I % kubectl delete po %
+}
