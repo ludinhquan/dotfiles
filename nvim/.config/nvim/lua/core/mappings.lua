@@ -1,6 +1,9 @@
 vim.cmd([[
   let g:mapleader = "\<Space>"
-  colorscheme spacegray
+  set t_Co=256   " This is may or may not needed.
+
+  set background=light
+  colorscheme PaperColor
 
   nnoremap <F5> :colorscheme gruvbox<CR>
   nnoremap <F6> :colorscheme OceanicNext<CR>
@@ -84,4 +87,10 @@ vim.cmd([[
   hi BufferCurrent gui=bold guibg=#265F78 guifg=#D8DEE9"
   hi BufferCurrentSign gui=bold guibg=#265F78 guifg=#D8DEE9"
   hi BufferCurrentMod gui=bold guibg=#265F78"
+  hi BufferInactive guifg=#bcbcbc guibg=#005f87
+  hi BufferVisible guifg=#bcbcbc guibg=#005f87
+  hi BufferVisibleSign guifg=#bcbcbc guibg=#005f87
+  hi BufferVisibleMod guifg=#bcbcbc guibg=#005f87
+  hi VertSplit guifg=#8dc0d5 guibg=#005f87
+  hi DashboardHeader gui=bold guifg=#8dc0d5
 ]])

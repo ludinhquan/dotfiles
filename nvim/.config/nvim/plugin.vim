@@ -19,6 +19,7 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-surround'
   Plug 'simeji/winresizer'
+  Plug 'NLKNguyen/papercolor-theme'
 
   Plug 'karb94/neoscroll.nvim'
   Plug 'nvim-treesitter/nvim-treesitter'
@@ -35,4 +36,5 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'kristijanhusak/vim-dadbod-completion'
   Plug 'kyazdani42/nvim-web-devicons' " for file icons
   Plug 'kyazdani42/nvim-tree.lua', {'commit': '84126d3e'}
+  Plug 'rktjmp/lush.nvim'
 call plug#end()
