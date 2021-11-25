@@ -30,6 +30,7 @@ return {
     -- Audio
     "pasystray",
     "ibus-daemon -drxR",
-    'xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1'
+    'xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1',
+    'fusuma'
   }
 }

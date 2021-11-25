@@ -1,0 +1,18 @@
+swipe:
+  3:
+    left:
+      sendkey: "LEFTMETA+h"
+      threshold: 0.1
+      delay: 0.1
+    right:
+      sendkey: "LEFTMETA+l"
+      threshold: 0.1
+      delay: 0.1
+    up:
+      sendkey: "LEFTMETA+k"
+      threshold: 0.1
+      delay: 0.1
+    down:
+      sendkey: "LEFTMETA+j"
+      threshold: 0.1
+      delay: 0.1

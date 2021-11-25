@@ -26,10 +26,14 @@ export HISTFILE=$HOME/.zhistory    # History filepath
 export HISTSIZE=100000                   # Maximum events for internal history
 export SAVEHIST=100000                  # Maximum events in history file
 
+#ruby
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+
 # PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.fnm:$PATH
+export PATH="$PATH:$GEM_HOME/bin"
 
 # fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
