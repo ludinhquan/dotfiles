@@ -29,7 +29,7 @@ configuration                   {
 	dpi:96;
 	threads:                    0;
 	scroll-method:              0;
-	fake-background:            "screenshot";
+	/* fake-background:            "screenshot"; */
 	window-format:              "{w} - {n} - {t}";
 	click-to-exit:              true;
 	theme:                      "spotlight";
