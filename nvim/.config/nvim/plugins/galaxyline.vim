@@ -6,11 +6,9 @@ if not status_ok then
 end
 
 -- NOTE: if someone defines colors but doesn't have them then this will break
-local palette_status_ok, colors = pcall(require, "spacegray" .. ".palette")
-if not palette_status_ok then
-  colors = {
-    alt_bg = "#2E2E2E",
-    grey = "#858585",
+local colors = {
+    alt_bg = "#8dc0d5",
+    grey = "#515052",
     blue = "#569CD6",
     green = "#608B4E",
     yellow = "#DCDCAA",
@@ -24,7 +22,6 @@ if not palette_status_ok then
     info_yellow = "#FFCC66",
     hint_blue = "#9CDCFE",
   }
-end
 
 local condition = require "galaxyline.condition"
 local gls = gl.section
