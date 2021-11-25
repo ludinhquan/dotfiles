@@ -39,13 +39,13 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0xeeeeee'
-    foreground: '0x444444'
+    background: '0xefefef'
+    foreground: '0x666666'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
     text: '0xeeeeee'
-    cursor: '0x444444'
+    cursor: '0x555555'
 
   # Normal colors
   normal:
