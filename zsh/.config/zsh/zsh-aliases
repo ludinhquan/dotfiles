@@ -4,6 +4,7 @@ alias d="yarn dev"
 alias v="splitTmux"
 alias so="source ~/.zshrc"
 alias python="python3"
+alias pip="pip3"
 
 # some more ls aliases
 alias ls='ls --color=auto -ACF'
@@ -11,6 +12,9 @@ alias ll='ls --color=auto -alF'
 
 alias cddotfiles="cd $HOME/dotfiles"
 alias vidotfiles="cd $HOME/dotfiles && nvim"
+
+# kubectl
+alias k="kubectl"
 
 # open explorer
 alias e='xdg-open .'
