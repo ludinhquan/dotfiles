@@ -64,7 +64,7 @@ bindkey -r "^d"
 [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
+[ -d $ZDOTDIR/completion ] && fpath+="$ZDOTDIR/completion/"
 
 eval "`fnm env`"
 compinit
@@ -80,3 +80,4 @@ function splitTmux(){
 
 # kubectl add autocomplete permanently to your zsh shell
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+eval $(minikube docker-env)
