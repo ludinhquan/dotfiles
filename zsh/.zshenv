@@ -31,9 +31,10 @@ export SAVEHIST=100000                  # Maximum events in history file
 # export PATH="$PATH:$GEM_HOME/bin"
 
 # PATH
-export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.fnm:$PATH
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.fnm
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"

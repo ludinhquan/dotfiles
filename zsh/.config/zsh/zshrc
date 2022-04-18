@@ -80,5 +80,3 @@ function splitTmux(){
 
 # kubectl add autocomplete permanently to your zsh shell
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-eval $(minikube docker-env)
-
