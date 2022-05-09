@@ -6,10 +6,10 @@ window:
     x: 15
     y: 15
   decorations: none
+  opacity: 0.85
 scrolling:
   history: 10000
   multiplier: 3
-background_opacity: 0.85
 window.dynamic_title: true
 
 # Font Customization
