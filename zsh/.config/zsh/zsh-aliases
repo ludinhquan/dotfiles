@@ -71,6 +71,9 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 # kubectl
 alias k="kubectl"
 
+#telepresence
+alias tel="telepresence"
+
 # gpg encryption
 # verify signature for isos
 alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
