@@ -1,3 +1,4 @@
+@theme                     "spotlight"
 configuration                   {
 	modi:                       "combi,window,run,ssh";
 	yoffset:                    0;
@@ -32,7 +33,6 @@ configuration                   {
 	/* fake-background:            "screenshot"; */
 	window-format:              "{w} - {n} - {t}";
 	click-to-exit:              true;
-	theme:                      "spotlight";
 	max-history-size:           25;
 	combi-hide-mode-prefix:     false;
 	pid:                        "/run/user/1000/rofi.pid";

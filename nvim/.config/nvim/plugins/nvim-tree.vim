@@ -1,7 +1,7 @@
 lua <<EOF
   local nvimtree_config = {
     side = "left",
-    width = 30,
+    width = 50,
     show_icons = {
       git = 0,
       folders = 1,

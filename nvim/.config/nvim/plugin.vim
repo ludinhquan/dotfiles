@@ -11,7 +11,6 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'neoclide/coc-prettier'
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/fzf'
-  " Plug 'terryma/vim-multiple-cursors'
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
   Plug 'APZelos/blamer.nvim'
   Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
@@ -30,7 +29,7 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'glepnir/galaxyline.nvim'
   Plug 'romgrk/barbar.nvim'
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'ludinhquan/rest.nvim'
+  Plug 'NTBBloodbath/rest.nvim'
   Plug 'tpope/vim-dadbod'
   Plug 'kristijanhusak/vim-dadbod-ui'
   Plug 'kristijanhusak/vim-dadbod-completion'
