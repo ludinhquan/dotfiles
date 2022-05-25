@@ -1,5 +1,4 @@
-@theme "spotlight"
-
+@theme                     "spotlight"
 configuration                   {
 	modi:                       "combi,window,run,ssh";
 	yoffset:                    0;

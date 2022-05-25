@@ -11,7 +11,6 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'neoclide/coc-prettier'
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/fzf'
-  " Plug 'terryma/vim-multiple-cursors'
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
   Plug 'APZelos/blamer.nvim'
   Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
