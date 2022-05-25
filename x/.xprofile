@@ -16,7 +16,7 @@ xset r rate 210 40
 setxkbmap -option caps:escape
 
 # Hide mouse when typing
-# xbanish &
+xbanish &
 
 # load Xresources
 # xrdb ~/.Xresources

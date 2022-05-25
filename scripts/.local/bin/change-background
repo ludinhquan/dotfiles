@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill -zr $HOME/dotfiles/wallpapers
+feh --no-fehbg --bg-fill -zr $HOME/wallpapers

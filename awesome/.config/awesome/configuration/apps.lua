@@ -4,7 +4,7 @@ return {
   default = {
     rofi = rofi_command,
 
-    flameshot_area = 'flameshot gui -p ~/Pictures/screenshots',
+    flameshot_area = 'flameshot gui',
     flameshot_full= 'flameshot full -p ~/Pictures/screenshots',
 
     lock = '. ~/.local/bin/lock-screen',
