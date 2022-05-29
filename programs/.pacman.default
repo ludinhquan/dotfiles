@@ -8,8 +8,8 @@ neovim
 xclip
 python-neovim
 alsa-utils
-pulseaudio
-pulseaudio-alsa
+pipewire-pulse
+pipewire-alsa
 zsh
 tmux
 xorg-xset
