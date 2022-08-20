@@ -16,10 +16,11 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
   Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
   Plug 'kevinhwang91/rnvimr'
-  Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-surround'
   Plug 'simeji/winresizer'
 
+  Plug 'kdheepak/lazygit.nvim'
+  Plug 'windwp/nvim-autopairs'
   Plug 'karb94/neoscroll.nvim'
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'phaazon/hop.nvim'
