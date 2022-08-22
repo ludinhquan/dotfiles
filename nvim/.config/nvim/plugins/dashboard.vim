@@ -1,5 +1,6 @@
 lua <<EOF
   local HOME = os.getenv('HOME')
+  local CURL_FOLDER = os.getenv('HOME') .. '/tmp/curl.http'
   local db = require('dashboard')
 
   db.preview_command = 'cat | lolcat -F 0.3'
@@ -16,6 +17,10 @@ lua <<EOF
       desc = 'Find  word                              ',
       action = 'Rg',
       shortcut = 'SPC f'},
+      {icon = '  ',
+      desc = 'Curl                                   ',
+      action = ':e '.. CURL_FOLDER,
+      shortcut = 'SPC c l'},
     }
   db.custom_footer = {
       \ 'Magic. Do not touch;'
@@ -37,6 +42,8 @@ lua <<EOF
       { "FileType", "dashboard", "nnoremap <silent> <buffer> q :q<CR>" },
     }
   }
- 
+
+  vim.api.nvim_set_keymap("n", "<Leader>cl", ":e " .. CURL_FOLDER .. "<cr>", { silent = true })
+  vim.api.nvim_set_keymap("n", "<Leader>;", ":Dashboard<cr>", { silent = true })
 EOF
 
