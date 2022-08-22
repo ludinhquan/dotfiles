@@ -1,39 +1,25 @@
 lua <<EOF
-  local USER_CONFIG_PATH = os.getenv "HOME" .. "/dotfiles/nvim/.config/nvim/init.vim"
-  local CURL_FOLDER = os.getenv "HOME" .. "/tmp/curl.http"
-  vim.api.nvim_set_keymap("n", "<Leader>cl", ":e " .. CURL_FOLDER .. "<cr>", { silent = true })
+  local HOME = os.getenv('HOME')
+  local db = require('dashboard')
 
-  local dashboard = {
-    search_handler = "fzf",
-    custom_section = {
-      a = {
-        description = { "  Find File          " },
-        command = "Files",
-      },
-      b = {
-        description = { "  Find Word          " },
-        command = "Rg",
-      },
-      c = {
-        description = { "  New File           " },
-        command = ":enew",
-      },
-      d = {
-        description = { "  Curl               " },
-        command = ":e " .. CURL_FOLDER,
-      },
-      f = {
-        description = { "  Settings           " },
-        command = ":e " .. USER_CONFIG_PATH,
-      },
-    },
-  }
+  db.preview_command = 'cat | lolcat -F 0.3'
+  db.preview_file_path = HOME .. '/.config/nvim/static/neovim.cat'
 
-  vim.g.dashboard_disable_at_vimenter = 0
-
-  vim.g.dashboard_default_executive = dashboard.search_handler
-
-  vim.g.dashboard_custom_section = dashboard.custom_section
+  db.preview_file_height = 10 
+  db.preview_file_width = 70
+  db.custom_center = {
+      {icon = '  ',
+      desc = 'Find  File                              ',
+      action = 'Files',
+      shortcut = 'SPC p'},
+      {icon = '  ',
+      desc = 'Find  word                              ',
+      action = 'Rg',
+      shortcut = 'SPC f'},
+    }
+  db.custom_footer = {
+      \ 'Magic. Do not touch;'
+      \ }
 
   require("core.autocmds").define_augroups {
     _dashboard = {
@@ -49,30 +35,8 @@ lua <<EOF
         "set showtabline=0 | autocmd BufLeave <buffer> set showtabline=" .. vim.opt.showtabline._value,
       },
       { "FileType", "dashboard", "nnoremap <silent> <buffer> q :q<CR>" },
-    },
+    }
   }
+ 
 EOF
 
-let g:dashboard_custom_header =<< trim END
-=================     ===============     ===============   ========  ========
-\\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
-||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||
-|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||
-||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||
-|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||
-||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||
-|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||
-||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||
-||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||
-||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||
-||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||
-||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||
-||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||
-||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||
-||.=='    _-'                                                     `' |  /==.||
-=='    _-'                        N E O V I M                         \/   `==
-\   _-'                                                                `-_   /
- `''                                                                      ``'
-END
-
-nnoremap <Leader>; :Dashboard<CR>
