@@ -8,3 +8,5 @@ curl.http
 share
 !share/fonts
 db.vim
+scripts/.local/*
+!scripts/.local/bin
