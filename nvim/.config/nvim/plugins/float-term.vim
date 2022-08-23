@@ -49,5 +49,5 @@ function! FloatTerm(...)
 endfunction
 
 " Open terminal
-" nnoremap <Leader>t :call FloatTerm()<CR>
+nnoremap <Leader>t :call FloatTerm()<CR>
 " nnoremap <Leader>gs :call FloatTerm('lazygit')<CR>

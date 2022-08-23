@@ -2,6 +2,9 @@
 nnoremap <silent>    <S-TAB> :BufferPrevious<CR>
 nnoremap <silent>    <TAB> :BufferNext<CR>
 
+nnoremap <silent>    <C-j> :BufferPrevious<CR>
+nnoremap <silent>    <C-k> :BufferNext<CR>
+
 " Re-order to previous/next
 nnoremap <silent>    <A-[> :BufferMovePrevious<CR>
 nnoremap <silent>    <A-]> :BufferMoveNext<CR>
@@ -27,7 +30,7 @@ nnoremap  <C-x> :BufferClose<CR>
 " Close commands
 "                          :BufferCloseAllButCurrent<CR>
 "                          :BufferCloseAllButPinned<CR>
-"                      #262626    :BufferCloseBuffersLeft<CR>
+"                          :BufferCloseBuffersLeft<CR>
 "                          :BufferCloseBuffersRight<CR>
 " Magic buffer-picking mode
 " Sort automatically by...
