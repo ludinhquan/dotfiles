@@ -1,7 +1,12 @@
 lua <<EOF
+  local status_ok, db = pcall(require, "dashboard")
+  if not status_ok then
+    print "Failed to load dashboard"
+    return
+  end
+
   local HOME = os.getenv('HOME')
   local CURL_FOLDER = os.getenv('HOME') .. '/tmp/curl.http'
-  local db = require('dashboard')
 
   db.preview_command = 'cat | lolcat -F 0.3'
   db.preview_file_path = HOME .. '/.config/nvim/static/neovim.cat'
