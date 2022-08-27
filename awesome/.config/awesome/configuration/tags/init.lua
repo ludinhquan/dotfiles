@@ -11,19 +11,19 @@ local tags = {
     screen = 1
   },
   {
-    icon = icons.firefox,
+    icon = icons.social,
     type = 'firefox',
     defaultApp = apps.default.browser,
     screen = 1
   },
   {
-    icon = icons.social,
+    icon = icons.firefox,
     type = 'social',
     defaultApp = apps.default.social,
     screen = 1
   },
   {
-    icon = icons.folder,
+    icon = icons.plus,
     type = 'files',
     defaultApp = apps.default.files,
     screen = 1
