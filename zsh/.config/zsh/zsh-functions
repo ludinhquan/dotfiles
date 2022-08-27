@@ -88,3 +88,8 @@ function kdel(){
   fzf | awk '{print $1}' | \
   xargs -o -I % kubectl delete po %
 }
+
+function splitTmux(){ 
+  tmux split-window -h -c "#{pane_current_path}" -p 25
+    tmux select-pane -t 0
+}

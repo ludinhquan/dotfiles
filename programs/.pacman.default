@@ -12,10 +12,6 @@ pipewire-pulse
 pipewire-alsa
 zsh
 tmux
-xorg-xset
-xorg-xrandr
-xorg-server
-xorg-xinit
 networkmanager
 i3lock
 gimp
@@ -45,9 +41,6 @@ ranger
 libreoffice-still
 pasystray
 flameshot
-xorg-fonts-75dpi
-xorg-fonts-100dpi
-xorg-fonts-misc
 adobe-source-han-sans-otc-fonts
 ttf-dejavu
 ttf-liberation
@@ -56,3 +49,12 @@ github-cli
 openssh
 xfce4-power-manager
 acpi
+lolcat
+xorg-xset
+xorg-xinput
+xorg-xrandr
+xorg-server
+xorg-xinit
+xorg-fonts-75dpi
+xorg-fonts-100dpi
+xorg-fonts-misc

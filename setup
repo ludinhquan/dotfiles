@@ -36,4 +36,8 @@ source ~/dotfiles/zsh/.config/zsh/.zshrc
 sudo chsh -s "$(command -v zsh)" "${USER}"
 
 systemctl enable lightdm
+sudo cp ~/dotfiles/wallpaper.jpg /usr/share/pixmaps/
+echo "[greeter]" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf
+echo "background=/usr/share/pixmaps/wallpaper.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf
 
+systemctl enable pasystray
