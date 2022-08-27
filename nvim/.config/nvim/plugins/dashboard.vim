@@ -8,11 +8,10 @@ lua <<EOF
   local HOME = os.getenv('HOME')
   local CURL_FOLDER = os.getenv('HOME') .. '/tmp/curl.http'
 
-  db.preview_command = 'cat | lolcat -F 0.3'
-  db.preview_file_path = HOME .. '/.config/nvim/static/neovim.cat'
-
+  db.custom_header = {}
   db.preview_file_height = 10 
-  db.preview_file_width = 70
+  db.preview_file_width = 20
+
   db.custom_center = {
       {icon = '  ',
       desc = 'Find  File                              ',
