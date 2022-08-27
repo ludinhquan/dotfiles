@@ -18,7 +18,7 @@ return {
     files = 'nautilus',
   },
   run_on_start_up = {
-    "teams",
+    -- "teams",
     -- "slack",
     "picom",
     -- Network Manager Applet
