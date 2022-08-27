@@ -1,4 +1,3 @@
-print "\n"
 read "USER?Username: "
 read "EMAIL?Email: "
 
