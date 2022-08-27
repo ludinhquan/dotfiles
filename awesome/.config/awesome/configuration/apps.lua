@@ -32,7 +32,6 @@ return {
     "ibus-daemon -drxR",
     'xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1',
     'xinput set-prop "SYNA8004:00 06CB:CD8B Touchpad" "libinput Tapping Enabled" 1',
-    'xrandr --output eDP-1 --mode 1920x1080',
-    'fusuma'
+    'xrandr --output eDP-1 --mode 1920x1080'
   }
 }
