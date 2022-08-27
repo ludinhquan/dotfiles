@@ -136,8 +136,7 @@ local TasklistPanel = function(s, offset)
         step_spacing = 2,
         enable_kill_button = 1
       }),
-      wibox.container.margin(ram_widget(), dpi(8), dpi(4), dpi(4), dpi(4)),
-      wibox.container.margin(volume_widget(), dpi(4), dpi(8), dpi(4), dpi(4))
+      wibox.container.margin(ram_widget(), dpi(8), dpi(4), dpi(4), dpi(4))
     },
   }
 

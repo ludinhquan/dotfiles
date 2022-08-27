@@ -1,8 +1,8 @@
+# Monitor Config
+xrandr --auto --output eDP-1 --mode 1920x1080
+
 # Random Photo Every Login
 feh --bg-fill --randomize ~/wallpapers/* &
-
-# Monitor Config
-# xrandr --auto --output Virtual-1 --mode 1920x1080
 
 # Don't Randomly Turn off
 xset s off
