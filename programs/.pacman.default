@@ -58,3 +58,5 @@ xorg-xinit
 xorg-fonts-75dpi
 xorg-fonts-100dpi
 xorg-fonts-misc
+ntp
+mlocate

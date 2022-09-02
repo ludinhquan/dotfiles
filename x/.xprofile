@@ -1,5 +1,5 @@
 # Monitor Config
-xrandr --auto --output eDP-1 --mode 1920x1080
+# xrandr --auto --output eDP-1 --mode 1920x1080
 
 # Random Photo Every Login
 feh --bg-fill --randomize ~/wallpapers/* &

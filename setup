@@ -41,3 +41,7 @@ echo "[greeter]" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf
 echo "background=/usr/share/pixmaps/wallpaper.jpg" | sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf
 
 systemctl enable pasystray
+systemctl enable bluetooth
+systemctl enable ntpd
+
+timedatectl set-ntp true
