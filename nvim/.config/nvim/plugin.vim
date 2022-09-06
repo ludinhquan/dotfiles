@@ -24,7 +24,6 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'karb94/neoscroll.nvim'
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'phaazon/hop.nvim'
-  Plug 'iamcco/markdown-preview.nvim'
   Plug 'glepnir/dashboard-nvim'
   Plug 'terrortylor/nvim-comment'
   Plug 'glepnir/galaxyline.nvim'
@@ -37,4 +36,5 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'kyazdani42/nvim-web-devicons' " for file icons
   Plug 'kyazdani42/nvim-tree.lua', {'commit': '84126d3e'}
   Plug 'untitled-ai/jupyter_ascending.vim'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 call plug#end()

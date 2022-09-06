@@ -25,6 +25,10 @@ yay -S picom-git
 # Reload fonts
 fc-cache -fv
 
+# install nodejs and yarn
+fnm install --lts
+npm install --global yarn
+
 # Create symlink
 cd ~/dotfiles
 stow */
