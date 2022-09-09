@@ -24,7 +24,7 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'karb94/neoscroll.nvim'
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'phaazon/hop.nvim'
-  Plug 'iamcco/markdown-preview.nvim'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
   Plug 'glepnir/dashboard-nvim'
   Plug 'terrortylor/nvim-comment'
   Plug 'glepnir/galaxyline.nvim'

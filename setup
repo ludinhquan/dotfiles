@@ -21,6 +21,7 @@ yay -S teams
 yay -S mongodb-bin
 yay -S nerd-fonts-fira-code
 yay -S picom-git
+yay -S cloudflare-warp-bin
 
 # Reload fonts
 fc-cache -fv
@@ -43,5 +44,6 @@ echo "background=/usr/share/pixmaps/wallpaper.jpg" | sudo tee -a /etc/lightdm/li
 systemctl enable pasystray
 systemctl enable bluetooth
 systemctl enable ntpd
+systemctl enable warp-svc
 
 timedatectl set-ntp true

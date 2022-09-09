@@ -14,6 +14,7 @@ set signcolumn=yes
 let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-json',
+    \ 'coc-format-json',
     \  ]
 let g:coc_snippet_next = '<tab>'
 " Some servers have issues with backup files, see #649.
