@@ -2,6 +2,12 @@ lua <<EOF
   vim.g.loaded = 1
   vim.g.loaded_netrwPlugin = 1
 
+
+  local function reload_custom()
+      require"nvim-tree.view".reload()
+      require"nvim-tree.api.git".reload()
+    end
+
   local config = {
     view = {
      side = "left",
@@ -10,7 +16,7 @@ lua <<EOF
         list = {
           { key = "l", action = "preview" },
           { key = "h", action = "node_close" },
-          { key = "<C-e>", action = "" },
+          { key = "R", action = "reload_custom", action_cd=reload_custom },
         }
       }
     },
@@ -20,9 +26,6 @@ lua <<EOF
           enable = false
           }
         }
-      },
-    remove_file = {
-      close_window = false
       }
   }
 
@@ -33,6 +36,7 @@ lua <<EOF
     print "Failed to load nvim-tree.lua"
     return
   end
+
 
   nvim_tree.setup(config)
 EOF
