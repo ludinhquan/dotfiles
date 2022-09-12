@@ -2,11 +2,6 @@ lua <<EOF
   vim.g.loaded = 1
   vim.g.loaded_netrwPlugin = 1
 
-
-  local function reload_custom()
-      require"nvim-tree.view".reload()
-    end
-
   local config = {
     view = {
      side = "left",
@@ -15,7 +10,6 @@ lua <<EOF
         list = {
           { key = "l", action = "preview" },
           { key = "h", action = "node_close" },
-          { key = "R", action = "reload_custom", action_cd=reload_custom },
         }
       }
     },
