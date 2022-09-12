@@ -34,7 +34,7 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'kristijanhusak/vim-dadbod-ui'
   Plug 'kristijanhusak/vim-dadbod-completion'
   Plug 'kyazdani42/nvim-web-devicons' " for file icons
-  Plug 'kyazdani42/nvim-tree.lua', {'commit': '84126d3e'}
+  Plug 'kyazdani42/nvim-tree.lua', 
   Plug 'untitled-ai/jupyter_ascending.vim'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 call plug#end()

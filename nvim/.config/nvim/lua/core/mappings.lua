@@ -21,8 +21,7 @@ vim.cmd([[
   inoremap <C-\> <Esc>:vsplit<CR>
 
   " Source nvim
-  nnoremap <Leader>r :source ~/.config/nvim/init.vim<CR>
-  nnoremap rr :source %<CR>
+  nnoremap <Leader><Leader>r :source ~/.config/nvim/init.vim<CR>
 
   inoremap jk <ESC>
   inoremap kj <ESC>

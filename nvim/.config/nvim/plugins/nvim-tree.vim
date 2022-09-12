@@ -1,68 +1,40 @@
 lua <<EOF
-  local nvimtree_config = {
-    side = "left",
-    width = 50,
-    show_icons = {
-      git = 0,
-      folders = 1,
-      files = 1,
-      folder_arrows = 1,
-      tree_width = 30,
+  vim.g.loaded = 1
+  vim.g.loaded_netrwPlugin = 1
+
+  local config = {
+    view = {
+     side = "left",
+     width = 40,
+     mappings = {
+        list = {
+          { key = "l", action = "preview" },
+          { key = "h", action = "node_close" },
+          { key = "<C-e>", action = "" },
+        }
+      }
     },
-    auto_open = 1,
-    auto_close = 1,
-    quit_on_open = 0,
-    follow = 1,
-    hide_dotfiles = 0,
-    git_hl = 1,
-    root_folder_modifier = ":t",
-    tab_open = 0,
-    allow_resize = 1,
-    lsp_diagnostics = 1,
-    auto_ignore_ft = { "startify", "dashboard" },
-    disable_window_picker=1,
-    icons = {
-      default = "",
-      symlink = "",
-      git = {
-        unstaged = "",
-        staged = "S",
-        unmerged = "",
-        renamed = "➜",
-        deleted = "",
-        untracked = "U",
-        ignored = "◌",
+    actions = {
+      open_file = {
+        window_picker = {
+          enable = false
+          }
+        }
       },
-      folder = {
-        default = "",
-        open = "",
-        empty = "",
-        empty_open = "",
-        symlink = "",
-      },
-    },
+    remove_file = {
+      close_window = false
+      }
   }
 
   local g = vim.g
-  local status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-  local tree_cb = nvim_tree_config.nvim_tree_callback
+  local status_ok, nvim_tree = pcall(require, "nvim-tree")
 
   if not status_ok then
-    print "Failed to load nvim-tree.config"
+    print "Failed to load nvim-tree.lua"
     return
   end
 
-  for opt, val in pairs(nvimtree_config) do
-    g["nvim_tree_" .. opt] = val
-  end
-
-  if not g.nvim_tree_bindings then
-    g.nvim_tree_bindings = {
-      { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-      { key = "h", cb = tree_cb "close_node" },
-      { key = "v", cb = tree_cb "vsplit" },
-    }
-  end
+  nvim_tree.setup(config)
 EOF
 
 nnoremap <Leader>e :NvimTreeToggle<CR>
