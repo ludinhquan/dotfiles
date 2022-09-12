@@ -22,8 +22,6 @@ nnoremap <silent>    <A-9> :BufferLast<CR>
 nnoremap <silent>    <A-p> :BufferPin<CR>
 " Close buffer
 nnoremap  <Leader>x :BufferCloseAllButCurrent<CR>
-nnoremap  <Leader>xl :BufferCloseBuffersRight<CR>
-nnoremap  <Leader>xh :BufferCloseBuffersLeft<CR>
 nnoremap  <C-x> :BufferClose<CR>
 " Wipeout buffer
 "                          :BufferWipeout<CR>
