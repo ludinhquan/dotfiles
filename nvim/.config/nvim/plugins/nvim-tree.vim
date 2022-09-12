@@ -5,7 +5,6 @@ lua <<EOF
 
   local function reload_custom()
       require"nvim-tree.view".reload()
-      require"nvim-tree.api.git".reload()
     end
 
   local config = {
