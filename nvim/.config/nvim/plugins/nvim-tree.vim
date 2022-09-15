@@ -11,6 +11,7 @@ lua <<EOF
 
   local lib = require("nvim-tree.lib")
   local api = require("nvim-tree.api")
+  local renderer = require("nvim-tree.renderer")
 
   local function node_close_custom()
     local node = lib.get_node_at_cursor()
@@ -20,10 +21,29 @@ lua <<EOF
 
     if node.open then
       lib.expand_or_collapse(node)
-    else  
-      api.node.navigate.parent_close()
+      return
+    end
+    api.node.navigate.parent_close()
+  end
+
+
+  local function node_preview_custom()
+    local node = lib.get_node_at_cursor()
+    if not node or node.name == ".." then
+      return
     end
 
+    if node.open == false then
+      api.node.open.edit()
+      return
+    end
+
+    local has_children = node.nodes and (#node.nodes ~= 0 or node.has_children)
+    if has_children == true then
+      return
+    end
+
+    api.node.open.edit()
   end
 
   local config = {
@@ -34,7 +54,7 @@ lua <<EOF
      mappings = {
         list = {
           { key = "<C-e>", action = "" },
-          { key = "l", action = "preview" },
+          { key = "l", action = "node_preview_custom", action_cb=node_preview_custom },
           { key = "h", action = "node_close_custom", action_cb=node_close_custom },
         }
       }
@@ -53,7 +73,7 @@ lua <<EOF
       highlight_git = true,
       indent_markers = {enable = true},
       icons = { show = {git= false} } 
-    } 
+    }
   }
 
   nvim_tree.setup(config)
