@@ -68,7 +68,7 @@ lua <<EOF
       }
     },
     renderer = {
-      highlight_opened_files = 'name',
+      highlight_opened_files = 'icon',
       indent_width = 2,
       highlight_git = true,
       indent_markers = {enable = true},
