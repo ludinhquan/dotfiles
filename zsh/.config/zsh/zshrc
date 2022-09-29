@@ -21,6 +21,7 @@ _comp_options+=(globdots)		# Include hidden files.
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
+autoload -U add-zsh-hook
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
@@ -61,7 +62,6 @@ bindkey -r "^d"
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
-
 # FZF 
 # TODO update for mac
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
@@ -78,3 +78,6 @@ bindkey '^e' edit-command-line
 [[ $commands[minikube] ]] && eval $(minikube docker-env)
 
 [[ $commands[fnm] ]] && eval $(fnm env)
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc

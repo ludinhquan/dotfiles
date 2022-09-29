@@ -93,3 +93,16 @@ function splitTmux(){
   tmux split-window -h -c "#{pane_current_path}" -p 25
     tmux select-pane -t 0
 }
+
+# place default node version under $HOME/.node-version
+function load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]] || [[ -f .node-version && -r .node-version ]]; then
+    fnm use
+  fi
+  # DEFAULT_NODE_VERSION=`cat $HOME/.node-version`
+  # elif
+  #   [[ `node -v` != $DEFAULT_NODE_VERSION ]]; then
+  #   echo Reverting to node from "`node -v`" to "$DEFAULT_NODE_VERSION"
+  #   fnm use $DEFAULT_NODE_VERSION
+  # fi
+}
