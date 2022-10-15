@@ -29,7 +29,7 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'glepnir/galaxyline.nvim'
   Plug 'romgrk/barbar.nvim'
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'NTBBloodbath/rest.nvim'
+  Plug 'rest-nvim/rest.nvim'
   Plug 'tpope/vim-dadbod'
   Plug 'kristijanhusak/vim-dadbod-ui'
   Plug 'kristijanhusak/vim-dadbod-completion'

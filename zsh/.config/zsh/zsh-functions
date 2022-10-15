@@ -106,3 +106,7 @@ function load-nvmrc() {
   #   fnm use $DEFAULT_NODE_VERSION
   # fi
 }
+
+function kport(){
+  kill -9 $(lsof -t -i:$1)
+}

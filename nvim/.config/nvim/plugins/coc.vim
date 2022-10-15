@@ -118,6 +118,8 @@ nnoremap <silent> gs :call CocAction('jumpDefinition', 'drop')<CR>
 nnoremap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
 nnoremap <silent> gt :call CocAction('jumpDefinition', 'tabe')<CR>
 
+vnoremap <Leader> fm :CocCommand formatJson.selected<CR>
+
 nnoremap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>do <Plug>(coc-codeaction)
