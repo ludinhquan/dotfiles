@@ -16,55 +16,6 @@ function zsh_add_plugin() {
     fi
 }
 
-function zsh_add_completion() {
-    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
-    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then 
-        # For completions
-		completion_file_path=$(ls $ZDOTDIR/plugins/$PLUGIN_NAME/_*)
-		fpath+="$(dirname "${completion_file_path}")"
-        zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh"
-    else
-        git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
-		fpath+=$(ls $ZDOTDIR/plugins/$PLUGIN_NAME/_*)
-        [ -f $ZDOTDIR/.zccompdump ] && $ZDOTDIR/.zccompdump
-    fi
-	completion_file="$(basename "${completion_file_path}")"
-	if [ "$2" = true ] && compinit "${completion_file:1}"
-}
-
-matrix () {
-    local lines=$(tput lines)
-    cols=$(tput cols)
-
-    awkscript='
-    {
-        letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"
-        lines=$1
-        random_col=$3
-        c=$4
-        letter=substr(letters,c,1)
-        cols[random_col]=0;
-        for (col in cols) {
-            line=cols[col];
-            cols[col]=cols[col]+1;
-            printf "\033[%s;%sH\033[2;32m%s", line, col, letter;
-            printf "\033[%s;%sH\033[1;37m%s\033[0;0H", cols[col], col, letter;
-            if (cols[col] >= lines) {
-                cols[col]=0;
-            }
-    }
-}
-'
-
-  echo -e "\e[1;40m"
-  clear
-
-  while :; do
-      echo $lines $cols $(( $RANDOM % $cols)) $(( $RANDOM % 72 ))
-      sleep 0.05
-  done | awk "$awkscript"
-}
-
 function klogs(){
   kubectl get pods --no-headers | \
   fzf | awk '{print $1}' | \
@@ -99,12 +50,6 @@ function load-nvmrc() {
   if [[ -f .nvmrc && -r .nvmrc ]] || [[ -f .node-version && -r .node-version ]]; then
     fnm use
   fi
-  # DEFAULT_NODE_VERSION=`cat $HOME/.node-version`
-  # elif
-  #   [[ `node -v` != $DEFAULT_NODE_VERSION ]]; then
-  #   echo Reverting to node from "`node -v`" to "$DEFAULT_NODE_VERSION"
-  #   fnm use $DEFAULT_NODE_VERSION
-  # fi
 }
 
 function kport(){
