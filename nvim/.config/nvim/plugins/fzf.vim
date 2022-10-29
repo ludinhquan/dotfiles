@@ -10,9 +10,13 @@ command! -bang -nargs=* Rg
   \   'rg --hidden --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
   \   {'options': '--delimiter : --nth 4..'}, <bang>0)
 
+command! -bang -nargs=? -complete=dir Curl
+    \ call fzf#vim#files(<q-args>, <bang>0)
+
 nnoremap <silent> <Leader>p :Files<CR>
 nnoremap <silent> <Leader>s :BLines<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>l :Curl<CR>http$
 nnoremap <silent> <Leader>f :Rg<CR>
 nnoremap <silent> <Leader>' :Marks<CR>
 nnoremap <silent> <Leader>H :Helptags<CR>
