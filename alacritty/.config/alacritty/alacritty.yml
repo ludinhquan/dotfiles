@@ -3,8 +3,8 @@ window:
     columns: 220
     lines: 60 
   padding:
-    x: 15
-    y: 15
+    x: 8 
+    y: 8 
   decorations: none
   opacity: 0.85
 scrolling:
