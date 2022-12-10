@@ -37,4 +37,6 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'kyazdani42/nvim-tree.lua', 
   Plug 'untitled-ai/jupyter_ascending.vim'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
+  Plug 'pantharshit00/vim-prisma'
 call plug#end()
