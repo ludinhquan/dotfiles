@@ -23,14 +23,13 @@ font:
   italic:
     family: FiraCode Nerd Font
     style: Medium,Regular
-  size: 7
+  size: 12
   offset:
     x: 0
     y: 0
   glyph_offset:
     x: 0
     y: 0
-  use_thin_strokes: false
   debug:
     persistent_logging: false
 draw_bold_text_with_bright_colors: true
@@ -80,3 +79,9 @@ cursor:
   style: Block
   unfocused_hollow: true
 
+shell:
+  program: /usr/bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
