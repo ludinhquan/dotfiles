@@ -11,18 +11,31 @@ bash $SCRIPT/install-yay.sh
 bash $SCRIPT/install-font.sh
 
 # xbanish: hide mouse cursor when typing
-yay -S --answerclean All --answerdiff All xbanish
-yay -S --answerclean All --answerdiff All google-chrome
-yay -S --answerclean All --answerdiff All slack-desktop
-yay -S --answerclean All --answerdiff All teams
-yay -S --answerclean All --answerdiff All fnm-bin
+yay -S --answerclean None --answerdiff None xbanish
+yay -S --answerclean None --answerdiff None google-chrome
+yay -S --answerclean None --answerdiff None slack-desktop
+yay -S --answerclean None --answerdiff None teams
+yay -S --answerclean None --answerdiff None fnm-bin
+
+# Create symlink
+cd $HOME/dotfiles
+
+stow alacritty &
+stow awesome &
+stow nvim &
+stow picom &
+stow ranger &
+stow rofi &
+stow tmux &
+stow wallpapers &
+stow x &
+stow zsh &
+stow scripts &
+
+sudo chsh -s "$(command -v zsh)" "${USER}"
+
+zsh
 
 # install nodejs and yarn
 fnm install --lts
 npm install --global yarn
-
-# Create symlink
-cd $HOME/dotfiles
-stow alacritty awesome nvim picom ranger rofi tmux wallpapers x zsh scripts
-
-sudo chsh -s "$(command -v zsh)" "${USER}"

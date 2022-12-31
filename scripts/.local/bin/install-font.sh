@@ -16,3 +16,5 @@ git sparse-checkout add patched-fonts/Hack
 
 bash install.sh FiraCode
 bash install.sh Hack
+
+fc-cache -f -v
