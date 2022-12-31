@@ -4,12 +4,13 @@ TMP=$HOME/tmp
 [ ! -d $TMP ] && mkdir $TMP
 cd $TMP
 
-if [ ! -d nerd-fonts ] 
+if [ ! -d $TMP/nerd-fonts ] 
 then
-  git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts
+  git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts
 fi
 
-cd nerd-fonts
+cd $TMP/nerd-fonts
+
 git sparse-checkout add patched-fonts/FiraCode
 git sparse-checkout add patched-fonts/Hack
 
