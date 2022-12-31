@@ -12,7 +12,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 #browser
-export BROWSER="brave"
+export BROWSER="firefox"
 
 # XDG Paths
 export XDG_CONFIG_HOME=$HOME/.config
@@ -36,4 +36,3 @@ export PATH=$PATH:$HOME/.fnm
 # fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-. "$HOME/.cargo/env"

@@ -7,8 +7,8 @@ zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-prompt"
 zsh_add_file "zsh-completion"
-zsh_add_file ~/.cargo/env
-zsh_add_file ~/.fzf.zsh
+zsh_add_file $HOME/.cargo/env
+zsh_add_file $HOME/.fzf.zsh
 zsh_add_file /usr/share/fzf/completion.zsh
 zsh_add_file /usr/share/fzf/key-bindings.zsh
 
