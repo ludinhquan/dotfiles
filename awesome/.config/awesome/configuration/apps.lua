@@ -12,7 +12,7 @@ return {
     change_input_method = '. ~/.local/bin/input-source',
     change_output_device = '. ~/.local/bin/change-output-device',
 
-    browser = 'brave',
+    browser = 'firefox',
     terminal = 'alacritty -e tmux',
     editor = 'nvim',
     files = 'nautilus',

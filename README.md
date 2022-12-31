@@ -22,9 +22,9 @@ stow */ # Everything (the '/' ignores the README,setup file)
 stow zsh # Just my zsh config
 ```
 
-Setup
+Setup and install packages
 ```bash
-./setup
+./setup.sh
 ```
 
 ## Programs
