@@ -30,7 +30,7 @@ function knamespace(){
 }
 
 function kenv(){
-  find $HOME/scripts -type f | \
+  find $HOME/projects/scripts/k8s -type f | \
   fzf | awk '{print $1}' | \
   xargs -o -I % bash %
 }
