@@ -12,7 +12,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 #browser
-export BROWSER="google-chrome-stable"
+export BROWSER="brave"
 
 # XDG Paths
 export XDG_CONFIG_HOME=$HOME/.config

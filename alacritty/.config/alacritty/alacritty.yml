@@ -3,8 +3,8 @@ window:
     columns: 220
     lines: 60 
   padding:
-    x: 8 
-    y: 8 
+    x: 5
+    y: 5 
   decorations: none
   opacity: 0.85
 scrolling:
@@ -32,7 +32,7 @@ font:
   italic:
     family: FiraCode Nerd Font
     style: Medium,Regular
-  size: 10
+  size: 7
   offset:
     x: 0
     y: 0

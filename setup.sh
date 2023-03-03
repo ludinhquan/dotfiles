@@ -16,6 +16,7 @@ yay -S --answerclean None --answerdiff None google-chrome
 yay -S --answerclean None --answerdiff None slack-desktop
 yay -S --answerclean None --answerdiff None teams
 yay -S --answerclean None --answerdiff None fnm-bin
+yay -S --answerclean None --answerdiff None mani
 
 # Create symlink
 cd $HOME/dotfiles
