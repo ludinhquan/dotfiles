@@ -45,6 +45,8 @@ network-manager-applet
 blueman
 pasystray
 make
+automake
+pkg-config
 xorg-xset
 xorg-xinput
 xorg-xrandr
