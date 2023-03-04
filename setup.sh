@@ -12,7 +12,7 @@ bash $SCRIPT/install-font.sh
 
 # xbanish: hide mouse cursor when typing
 yay -S --answerclean None --answerdiff None xbanish
-yay -S --answerclean None --answerdiff None google-chrome
+yay -S --answerclean None --answerdiff None brave
 yay -S --answerclean None --answerdiff None slack-desktop
 yay -S --answerclean None --answerdiff None teams
 yay -S --answerclean None --answerdiff None fnm-bin
