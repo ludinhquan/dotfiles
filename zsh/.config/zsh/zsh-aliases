@@ -15,6 +15,7 @@ alias vidotfiles="cd $HOME/dotfiles && nvim"
 
 # kubectl
 alias k="kubectl"
+alias kcontext="kubectl config get-contexts"
 
 # open explorer
 alias e='xdg-open .'
