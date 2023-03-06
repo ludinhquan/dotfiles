@@ -18,6 +18,7 @@ yay -S --answerclean None --answerdiff None teams
 yay -S --answerclean None --answerdiff None fnm-bin
 yay -S --answerclean None --answerdiff None mani
 yay -S --answerclean None --answerdiff None openvpn3
+yay -S --answerclean None --answerdiff None spotify-tui
 
 # Create symlink
 cd $HOME/dotfiles
