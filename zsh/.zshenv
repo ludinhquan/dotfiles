@@ -6,6 +6,7 @@
 
 export TERMINAL="alacritty"
 export DOTFILES="$HOME/dotfiles"
+export SECRET="$HOME/secrets"
 
 # editor
 export EDITOR="nvim"

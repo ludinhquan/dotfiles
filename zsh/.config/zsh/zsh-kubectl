@@ -1,0 +1,43 @@
+#!/bin/zsh
+
+function kcustomer(){
+  local kubeconfig
+  kubeconfig=$(find "$SECRET/cluster/customer" -type f | fzf)
+  if [[ -n "$kubeconfig" ]]; then
+    export KUBECONFIG="$kubeconfig"
+    echo "KUBECONFIG set to: $KUBECONFIG"
+  fi
+}
+
+function kdevelopment(){
+  find $SECRET/cluster/development -type f | \
+  fzf | awk '{print $1}' | \
+  xargs -o -I % bash %
+}
+
+function klog(){
+  kubectl get pods --no-headers | \
+  fzf | awk '{print $1}' | \
+  xargs -o -I % kubectl logs -f %
+}
+
+function kns(){
+  kubectl get namespace --no-headers | \
+  fzf | awk '{print $1}' | \
+  xargs -o -I % kubectl config set-context --current --namespace=%
+}
+
+function kexec(){
+  local kubeconfig
+  kubepod=$(kubectl get po | fzf | awk '{print $1}')
+  if [[ -n "$kubepod" ]]; then
+    kubectl exec -it "$kubepod" -- sh
+  fi
+}
+
+function kdel(){
+  kubectl get pods --no-headers | \
+  fzf | awk '{print $1}' | \
+  xargs -o -I % kubectl delete po %
+}
+

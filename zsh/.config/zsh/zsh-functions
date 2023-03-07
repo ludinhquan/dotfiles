@@ -17,40 +17,7 @@ function zsh_add_plugin() {
     fi
 }
 
-function klogs(){
-  kubectl get pods --no-headers | \
-  fzf | awk '{print $1}' | \
-  xargs -o -I % kubectl logs -f %
-}
-
-function knamespace(){
-  kubectl get namespace --no-headers | \
-  fzf | awk '{print $1}' | \
-  xargs -o -I % kubectl config set-context --current --namespace=%
-}
-
-function kcustomer(){
-  local kubeconfig
-  kubeconfig=$(find "$HOME/secrets/customer/k8s" -type f | fzf)
-  if [[ -n "$kubeconfig" ]]; then
-    export KUBECONFIG="$kubeconfig"
-    echo "KUBECONFIG set to: $KUBECONFIG"
-  fi
-}
-
-function kenv(){
-  find $HOME/secrets/scripts/k8s -type f | \
-  fzf | awk '{print $1}' | \
-  xargs -o -I % bash %
-}
-
-function kdel(){
-  kubectl get pods --no-headers | \
-  fzf | awk '{print $1}' | \
-  xargs -o -I % kubectl delete po %
-}
-
-function splitTmux(){ 
+function horizontal_split(){ 
   tmux split-window -h -c "#{pane_current_path}" -p 25
     tmux select-pane -t 0
 }
