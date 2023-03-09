@@ -5,5 +5,5 @@
   "typescript.showUnused": true,
   "javascript.showUnused": true,
   "suggest.maxCompleteItemCount": 20,
-  "coc.preferences.formatOnSaveFiletypes": [ "json", "html" ]
+  "coc.preferences.formatOnSaveFiletypes": [ "json", "html", "prisma" ]
 }

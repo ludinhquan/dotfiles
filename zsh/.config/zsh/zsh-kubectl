@@ -9,7 +9,7 @@ function kcustomer(){
   fi
 }
 
-function kdevelopment(){
+function kenv(){
   find $SECRET/cluster/development -type f | \
   fzf | awk '{print $1}' | \
   xargs -o -I % bash %
