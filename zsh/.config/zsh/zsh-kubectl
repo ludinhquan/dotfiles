@@ -29,7 +29,7 @@ function kns(){
 
 function kexec(){
   local kubeconfig
-  kubepod=$(kubectl get po | fzf | awk '{print $1}')
+  kubepod=$(kubectl get po --no-headers | fzf | awk '{print $1}')
   if [[ -n "$kubepod" ]]; then
     kubectl exec -it "$kubepod" -- sh
   fi
