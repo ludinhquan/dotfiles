@@ -15,16 +15,16 @@ function kenv(){
   xargs -o -I % bash %
 }
 
-function klog(){
-  kubectl get pods --no-headers | \
-  fzf | awk '{print $1}' | \
-  xargs -o -I % kubectl logs -f %
-}
-
 function kns(){
   kubectl get namespace --no-headers | \
   fzf | awk '{print $1}' | \
   xargs -o -I % kubectl config set-context --current --namespace=%
+}
+
+function klog(){
+  kubectl get pods --no-headers $1 | \
+  fzf | awk '{print $1}' | \
+  xargs -o -I % kubectl logs -f %
 }
 
 function kexec(){
