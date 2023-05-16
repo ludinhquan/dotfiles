@@ -29,14 +29,26 @@ function kns(){
 
 function kexec(){
   local kubeconfig
-  kubepod=$(kubectl get po --no-headers | fzf | awk '{print $1}')
+  kubepod=$(kubectl get po --no-headers $1 | fzf | awk '{print $1}')
   if [[ -n "$kubepod" ]]; then
     kubectl exec -it "$kubepod" -- sh
   fi
 }
 
 function kdel(){
-  kubectl get pods --no-headers | \
+  kubectl get pods --no-headers $1 | \
+  fzf | awk '{print $1}' | \
+  xargs -o -I % kubectl delete po %
+}
+
+function ks(){
+  kubectl get services --no-headers $1 | \
+  fzf | awk '{print $1}' | \
+  xargs -o -I % kubectl delete po %
+}
+
+function ki(){
+  kubectl get ingress --no-headers $1 | \
   fzf | awk '{print $1}' | \
   xargs -o -I % kubectl delete po %
 }
