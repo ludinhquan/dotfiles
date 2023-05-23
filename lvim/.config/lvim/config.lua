@@ -5,6 +5,7 @@
 --
 lvim.leader = "space"
 lvim.transparent_window = true
+lvim.builtin.terminal.open_mapping = "<space>t"
 
 lvim.keys.normal_mode = {
   ["l"] = "w",
@@ -52,3 +53,5 @@ lvim.plugins = {
     end,
   },
 }
+
+
