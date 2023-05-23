@@ -3,6 +3,7 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 --
+lvim.colorscheme = "spacegray"
 lvim.leader = "space"
 lvim.transparent_window = true
 lvim.builtin.terminal.open_mapping = "<space>t"
