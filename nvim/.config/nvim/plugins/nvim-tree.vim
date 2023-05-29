@@ -13,7 +13,7 @@ lua <<EOF
   local api = require("nvim-tree.api")
   local renderer = require("nvim-tree.renderer")
 
-  local function node_close_custom()
+  local function node_close()
     local node = lib.get_node_at_cursor()
     if not node or node.name == ".." then
       return
@@ -27,7 +27,7 @@ lua <<EOF
   end
 
 
-  local function node_preview_custom()
+  local function node_preview()
     local node = lib.get_node_at_cursor()
     if not node or node.name == ".." then
       return
@@ -51,13 +51,6 @@ lua <<EOF
      adaptive_size = true,
      centralize_selection = true,
      side = "left",
-     mappings = {
-        list = {
-          { key = "<C-e>", action = "" },
-          { key = "l", action = "node_preview_custom", action_cb=node_preview_custom },
-          { key = "h", action = "node_close_custom", action_cb=node_close_custom },
-        }
-      }
     },
     git = {
       ignore = false
@@ -77,6 +70,8 @@ lua <<EOF
   }
 
   nvim_tree.setup(config)
+  vim.keymap.set('n', 'l', node_preview)
+  vim.keymap.set('n', 'h', node_close)
 EOF
 
 nnoremap <Leader>e :NvimTreeToggle<CR>

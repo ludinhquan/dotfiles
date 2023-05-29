@@ -1,5 +1,4 @@
-" Move to previous/next
-nnoremap <silent>    <S-TAB> :BufferPrevious<CR>
+" Move to previous/next nnoremap <silent>    <S-TAB> :BufferPrevious<CR>
 nnoremap <silent>    <TAB> :BufferNext<CR>
 
 nnoremap <silent>    <C-j> :BufferPrevious<CR>
@@ -37,6 +36,3 @@ nnoremap <silent> <Space>bb :BufferOrderByBufferNumber<CR>
 nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
 nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
 nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
-
-let bufferline = get(g:, 'bufferline', {})
-let bufferline.icon_pinned = '車'
