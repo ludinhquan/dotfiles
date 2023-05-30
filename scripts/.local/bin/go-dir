@@ -1,9 +1,18 @@
-#!bin/bash
-if [ -z "$1" ] 
-then 
+#!/bin/bash
+
+if [ -z "$1" ]; then
   cd
   return
 fi
 
-PROJECT=".*$1.*";
-cd $(find $HOME/projects -maxdepth 3 -type d -regex $PROJECT | fzf)
+MAX_DEPTH=3
+
+if [ ! -z "$2" ]; then
+  MAX_DEPTH=$2
+fi
+
+echo $MAX_DEPTH
+
+PROJECT=".*$1.*"
+directory=$(find "$HOME/projects" -maxdepth $MAX_DEPTH -type d -regex "$PROJECT" | fzf)
+cd "$directory" || echo "No matching directory found"
