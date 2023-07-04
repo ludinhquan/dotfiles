@@ -31,6 +31,7 @@ export SAVEHIST=100000                  # Maximum events in history file
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.fnm
+export PATH=$PATH:/snap/bin
 
 [[ $commands[go] ]] && export PATH=$PATH:$(go env GOPATH)/bin
 
