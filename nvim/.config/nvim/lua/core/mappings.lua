@@ -52,6 +52,7 @@ vim.cmd([[
   nnoremap h b
   nnoremap L l
   nnoremap H h
+  nnoremap D dd
   vnoremap l w
   vnoremap h b
   vnoremap H h
