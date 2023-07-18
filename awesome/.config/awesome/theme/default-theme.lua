@@ -7,6 +7,7 @@ local theme = {}
 theme.icons = theme_dir .. '/icons/'
 theme.font = 'Roboto medium 10'
 
+
 -- Colors Pallets
 
 -- Primary
@@ -101,6 +102,7 @@ local awesome_overrides =
   theme.border_width = dpi(1)
   theme.border_focus = theme.primary.hue_500
   theme.border_normal = theme.primary.hue_900
+
 end
 return {
   theme = theme,

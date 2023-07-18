@@ -1,6 +1,7 @@
 local gears = require('gears')
 local awful = require('awful')
 local naughty = require('naughty')
+local dpi = require('beautiful').xresources.apply_dpi
 require('awful.autofocus')
 local beautiful = require('beautiful')
 
