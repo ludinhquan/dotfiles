@@ -1,9 +1,12 @@
 local awful = require('awful')
 local wibox = require('wibox')
+local naughty = require('naughty')
 local dpi = require('beautiful').xresources.apply_dpi
 local capi = {button = _G.button}
 local clickable_container = require('widget.material.clickable-container')
 local modkey = require('configuration.keys.mod').modKey
+local icons = require('theme.icons')
+
 --- Common method to create buttons.
 -- @tab buttons
 -- @param object
@@ -39,6 +42,7 @@ end
 local function list_update(w, buttons, label, data, objects)
   -- update the widgets, creating them if needed
   w:reset()
+
   for i, o in ipairs(objects) do
     local cache = data[o]
     local ib, tb, bgb, tbm, ibm, l, bg_clickable
@@ -90,19 +94,21 @@ local function list_update(w, buttons, label, data, objects)
     end
     bgb:set_bg(bg)
     if type(bg_image) == 'function' then
-      -- TODO: Why does this pass nil as an argument?
       bg_image = bg_image(tb, o, nil, objects, i)
     end
     bgb:set_bgimage(bg_image)
-    if icon then
+
+    if o.selected then 
+      ib.image = icons.circle
+    elseif o.urgent then
+      ib.image = icons.urgent
+    elseif #o:clients() > 0 then
+      ib.image = icons.urgent
+    elseif icon then
       ib.image = icon
     else
       ibm:set_margins(0)
     end
-
-    bgb.shape = args.shape
-    bgb.shape_border_width = args.shape_border_width
-    bgb.shape_border_color = args.shape_border_color
 
     w:add(bgb)
   end
