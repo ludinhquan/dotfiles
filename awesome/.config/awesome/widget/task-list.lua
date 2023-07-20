@@ -207,7 +207,7 @@ local tasklist_buttons =
 )
 
 local TaskList = function(s)
-  return awful.widget.tasklist(
+  local taskList = awful.widget.tasklist(
     s,
     awful.widget.tasklist.filter.currenttags,
     tasklist_buttons,
@@ -215,6 +215,7 @@ local TaskList = function(s)
     list_update,
     wibox.layout.fixed.horizontal()
   )
+  return taskList
 end
 
 return TaskList

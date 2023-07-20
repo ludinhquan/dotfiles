@@ -57,7 +57,7 @@ local function list_update(w, buttons, label, data, objects)
       tb = wibox.widget.textbox()
       bgb = wibox.container.background()
       tbm = wibox.container.margin(tb, dpi(8), dpi(8), dpi(2), dpi(2))
-      ibm = wibox.container.margin(ib, dpi(8), dpi(8), dpi(9), dpi(9))
+      ibm = wibox.container.margin(ib, dpi(7), dpi(7), dpi(10), dpi(10))
       l = wibox.layout.fixed.horizontal()
       bg_clickable = clickable_container()
 
@@ -99,13 +99,17 @@ local function list_update(w, buttons, label, data, objects)
     bgb:set_bgimage(bg_image)
 
     if o.selected then 
-      ib.image = icons.circle
+      ib.image = icons.tag_selected
+      ibm:set_margins(7)
     elseif o.urgent then
-      ib.image = icons.urgent
+      ib.image = icons.tag_urgent
+      ibm:set_margins(7)
     elseif #o:clients() > 0 then
-      ib.image = icons.urgent
+      ib.image = icons.tag_occupied
+      ibm:set_margins(10)
     elseif icon then
-      ib.image = icon
+      ib.image = icons.tag_normal
+      ibm:set_margins(10)
     else
       ibm:set_margins(0)
     end
@@ -115,7 +119,7 @@ local function list_update(w, buttons, label, data, objects)
 end
 
 local TagList = function(s)
-  return awful.widget.taglist(
+  local tags = awful.widget.taglist(
     s,
     awful.widget.taglist.filter.all,
     awful.util.table.join(
@@ -165,5 +169,8 @@ local TagList = function(s)
     list_update,
     wibox.layout.fixed.horizontal()
   )
+
+  return tags
 end
+
 return TagList

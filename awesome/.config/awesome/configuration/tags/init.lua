@@ -1,5 +1,6 @@
 local awful = require('awful')
 local gears = require('gears')
+local naughty = require('naughty')
 local icons = require('theme.icons')
 local apps = require('configuration.apps')
 
@@ -71,21 +72,23 @@ awful.layout.layouts = {
 
 awful.screen.connect_for_each_screen(
   function(s)
-    for i, tag in pairs(tags) do
-      awful.tag.add(
-        i,
-        {
-          icon = tag.icon,
-          icon_only = true,
-          layout = awful.layout.suit.tile,
-          gap_single_client = true,
-          gap = 6,
-          screen = s,
-          defaultApp = tag.defaultApp,
-          selected = i == 1
-        }
-      )
-    end
+    for i = 1, 8, 1
+      do
+        awful.tag.add(
+          i,
+          {
+            icon = '',
+            icon_only = true,
+            name = i,
+            layout = awful.layout.suit.tile,
+            gap_single_client = true,
+            gap = 6,
+            screen = s,
+            defaultApp = tag.defaultApp,
+            selected = i == 1
+          }
+        )
+      end
   end
 )
 

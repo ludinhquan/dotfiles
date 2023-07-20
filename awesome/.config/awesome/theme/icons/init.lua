@@ -27,6 +27,8 @@ return {
   harddisk = dir .. '/harddisk.svg',
   thermometer = dir .. '/thermometer.svg',
   plus = dir .. '/plus.svg',
-  circle = dir .. '/circle.svg',
-  urgent = dir .. '/urgent.svg'
+  tag_normal = dir .. '/tag/normal.svg',
+  tag_urgent = dir .. '/tag/urgent.svg',
+  tag_occupied = dir .. '/tag/occupied.svg',
+  tag_selected = dir .. '/tag/selected.svg'
 }
