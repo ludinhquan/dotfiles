@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+ln -sfn ~/dotfiles/.config ~/.config
+ln -sfn ~/dotfiles/.scripts ~/.scripts
+ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/.zshenv ~/.zshenv
