@@ -8,6 +8,8 @@ cd ~ #Moving to home directory at the beginning of the process
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+eval $(/opt/homebrew/bin/brew shellenv)
+
 #<----------------Installing MacOS Apps, via Homebrew, Caks, & The App Store-------------------->
 brew=(
     fnm
@@ -45,14 +47,26 @@ brew upgrade
 brew install ${brew[@]} #Homebrew App Installer
 brew install ${cask[@]} --cask #Casks Installer
 
-ln -s ~/Repos/dotfiles/.config/ ~/.config
-ln -s ~/Repos/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s ~/Repos/dotfiles/.profile ~/.profile
-ln -s ~/Repos/dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/dotfiles/.config/ ~/.config
+ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 
 #<----------------Changing MacOS Specific Preferences-------------------->
+defaults write com.apple.dock autohide-time-modifier -int 0 #Sets Dock Autohide Time to O Seconds
+defaults write com.apple.dock autohide -bool true #Turns Dock Autohide ON
+defaults write com.apple.dock magnification -bool  NO #Turns of Dock Magnification
+defaults write com.apple.dock orientation -string  left #Moving the Dock to the left Side of the Screen
+defaults write com.apple.dock minimize-to-application -bool YES #Minimizing Applications to Their Respective Application Icon
+defaults write com.apple.dock showhidden -string  YES #Shows Hidden Applications in Dock
+defaults write com.apple.dock expose-animation-duration -string 0 #Setting Expose Animation to 0 Seconds
+defaults write com.apple.dock tilesize -int 36 #Setting Icon Size to 36 Pixels
+defaults write com.apple.dock mineffect -string "genie" #Changes Minimize to Dock Animation to "Genie" (Seems to be the fastest by my eye)
+defaults write com.apple.dock launchanim -bool false #Setting Launch Animation to False
+
 defaults write -g InitialKeyRepeat -int 12
 defaults write -g KeyRepeat -int 2
+
+killall dock
 
 echo 'Installation Complete'
 echo 'Now you can make an SSH key:'
