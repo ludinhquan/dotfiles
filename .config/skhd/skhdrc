@@ -5,7 +5,7 @@ cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 # cmd - b : /Applications/Safari.app/Contents/MacOS/Safari
 cmd - b : open -n /Applications/Safari.app
 
-# reload skhd & yabai
+# reload skhd
 shift + cmd - r : skhd --reload
 
 # cycle all windows on space backwards by coordinate
@@ -21,15 +21,20 @@ cmd - h  : yabai -m space --focus prev
 cmd - l  : yabai -m space --focus next
 
 # focus on prev desktop
-alt - h : yabai -m display --focus prev
+ctrl + cmd - h : yabai -m display --focus prev
 
 # focus on next desktop
-alt - l : yabai -m display --focus next
+ctrl + cmd - l : yabai -m display --focus next
+
+# toggle window zoom 
+cmd - f : yabai -m query --spaces --window | grep '"type":"float"' && yabai -m space --layout bsp;\
+          yabai -m query --windows --window | grep '"floating":1' && yabai -m window --toggle float;\
+          yabai -m window --toggle zoom-fullscreen;
 
 # send window to desktop and follow focus
-# shift + cmd - z : yabai -m window --space prev; yabai -m space --focus prev
-# shift + cmd - c : yabai -m window --space next; yabai -m space --focus next
-#
+alt - h : yabai -m window --space prev; yabai -m space --focus prev
+alt - l : yabai -m window --space next; yabai -m space --focus next
+
 # send window to monitor and follow focus
 # ctrl + cmd - z  : yabai -m window --display prev && yabai -m display --focus prev
 # ctrl + cmd - c  : yabai -m window --display next && yabai -m display --focus next
@@ -41,16 +46,16 @@ shift + ctrl - k : yabai -m window --move rel:0:-20
 shift + ctrl - l : yabai -m window --move rel:20:0
 
 # increase window size
-shift + alt - h : yabai -m window --resize left:-20:0
-shift + alt - j : yabai -m window --resize bottom:0:20
-shift + alt - k : yabai -m window --resize top:0:-20
-shift + alt - l : yabai -m window --resize right:20:0
+shift + cmd - h : yabai -m window --resize left:-20:0
+shift + cmd - j : yabai -m window --resize bottom:0:20
+shift + cmd - k : yabai -m window --resize top:0:-20
+shift + cmd - l : yabai -m window --resize right:20:0
 
 # decrease window size
-shift + cmd - h : yabai -m window --resize left:20:0
-shift + cmd - j : yabai -m window --resize bottom:0:-20
-shift + cmd - k : yabai -m window --resize top:0:20
-shift + cmd - l : yabai -m window --resize right:-20:0
+shift + alt - h : yabai -m window --resize left:20:0
+shift + alt - j : yabai -m window --resize bottom:0:-20
+shift + alt - k : yabai -m window --resize top:0:20
+shift + alt - l : yabai -m window --resize right:-20:0
 
 # change layout of desktop
-ctrl + alt - s : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end')
+cmd + ctrl - d : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end')
