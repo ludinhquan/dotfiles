@@ -1,9 +1,0 @@
-# kubectl add autocomplete permanently to your zsh shell
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-
-[[ $commands[helm] ]] && source <(helm completion zsh)
-
-[[ $commands[minikube] ]] && source <(minikube completion zsh)
-
-[[ $commands[tilt] ]] && source <(tilt completion zsh)
-
