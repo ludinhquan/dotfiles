@@ -13,20 +13,21 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'junegunn/fzf'
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
   Plug 'APZelos/blamer.nvim'
-  Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
-  Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
-  Plug 'kevinhwang91/rnvimr'
+  " Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
+  " Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+  " Plug 'kevinhwang91/rnvimr'
   Plug 'tpope/vim-surround'
   Plug 'simeji/winresizer'
 
-  Plug 'kdheepak/lazygit.nvim'
+  " Plug 'kdheepak/lazygit.nvim'
+
   Plug 'windwp/nvim-autopairs'
   Plug 'karb94/neoscroll.nvim'
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'phaazon/hop.nvim'
   Plug 'glepnir/dashboard-nvim'
   Plug 'terrortylor/nvim-comment'
-  Plug 'glepnir/galaxyline.nvim'
+  " Plug 'glepnir/galaxyline.nvim'
   Plug 'romgrk/barbar.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'rest-nvim/rest.nvim'
@@ -35,8 +36,7 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'kristijanhusak/vim-dadbod-completion'
   Plug 'kyazdani42/nvim-web-devicons' " for file icons
   Plug 'kyazdani42/nvim-tree.lua', 
-  Plug 'untitled-ai/jupyter_ascending.vim'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
-  Plug 'pantharshit00/vim-prisma'
+  " Plug 'pantharshit00/vim-prisma'
 call plug#end()

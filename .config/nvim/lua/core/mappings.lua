@@ -73,6 +73,11 @@ vim.cmd([[
   " Move to last modification line 
   nnoremap <Leader>l '.
 
+  " Don't copy the replaced text after pasting in visual mode
+  " https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
+  xnoremap <silent> p p:let @+=@0<CR>:let @"=@0<CR>
+  nnoremap <silent> p p:let @+=@0<CR>:let @"=@0<CR>
+
   hi Normal guibg=NONE ctermbg=NONE
   hi LineNr guibg=NONE ctermbg=NONE
   hi EndOfBuffer guibg=NONE ctermbg=NONE

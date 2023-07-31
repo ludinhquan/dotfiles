@@ -1,6 +1,20 @@
 " Floating Term
 let s:float_term_border_win = 0
 let s:float_term_win = 0
+
+function! FloatingTermClose()
+    " Check if the floating terminal window variables exist and are valid
+    if exists('s:float_term_win') && win_id2win(s:float_term_win) != -1
+        " Close the floating terminal window
+        call nvim_win_close(s:float_term_win, v:true)
+    endif
+
+    if exists('s:float_term_border_win') && win_id2win(s:float_term_border_win) != -1
+        " Close the floating terminal border window (if applicable)
+        call nvim_win_close(s:float_term_border_win, v:true)
+    endif
+endfunction
+
 function! FloatTerm(...)
   " Configuration
   let height = float2nr((&lines - 2) * 0.8)
@@ -45,9 +59,10 @@ function! FloatTerm(...)
   endif
   startinsert
   " Close border window when terminal window close
-  autocmd TermClose * ++once :bd! | call nvim_win_close(s:float_term_border_win, v:true)
+  autocmd TermClose * ++once :bd! | call FloatingTermClose()
 endfunction
 
 " Open terminal
 nnoremap <Leader>t :call FloatTerm()<CR>
-" nnoremap <Leader>gs :call FloatTerm('lazygit')<CR>
+nnoremap <Leader>gs :call FloatTerm('lazygit')<CR>
+nnoremap <Leader>o :call FloatTerm('ranger')<CR>

@@ -22,6 +22,7 @@ brew=(
     jq
     lazygit
     neovim
+    ranger
     ripgrep
     tmux
     yabai
