@@ -2,11 +2,15 @@
 cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 # open browser
-# cmd - b : /Applications/Safari.app/Contents/MacOS/Safari
 cmd - b : open -n /Applications/Safari.app
+
+# reload yabai
+shift + alt - r : yabai --restart-service
 
 # reload skhd
 shift + cmd - r : skhd --reload
+
+# terminal-notifier -title "Terminal" -message "Done $(yabai -m query --spaces --window | jq '.[0].type')" 
 
 # cycle all windows on space backwards by coordinate
 cmd - j : yabai -m window --focus "$(yabai -m query --windows --space | jq -re "[sort_by(.id, .frame) | reverse | .[] | select(.role == \"AXWindow\" and .subrole == \"AXStandardWindow\") | .id] | nth(index($(yabai -m query --windows --window | jq -re ".id")) - 1)")"
@@ -25,6 +29,9 @@ ctrl + cmd - h : yabai -m display --focus prev
 
 # focus on next desktop
 ctrl + cmd - l : yabai -m display --focus next
+
+# rotate tree
+ctrl + alt - r : yabai -m space --rotate 180
 
 # toggle window zoom 
 cmd - f : yabai -m query --spaces --window | grep '"type":"float"' && yabai -m space --layout bsp;\

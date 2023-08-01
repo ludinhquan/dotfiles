@@ -23,13 +23,7 @@ yabai -m space 6 --label media
 yabai -m space 7 --label social
 
 # window rules
-yabai -m rule --add app="^Mail$" space=mail
-yabai -m rule --add app="^Notes$" space=notes
-yabai -m rule --add app="^ida64$" space=re
-yabai -m rule --add app="^Transmission$" space=media
-yabai -m rule --add app="^Spotify$" space=media
-yabai -m rule --add app="^Discord$" space=social grid=1:1:0:0:1:1 manage=off
-yabai -m rule --add app="^(Calculator|System Preferences|Archive Utility)$" manage=off
+yabai -m rule --add app="^(Calculator|System Settings|Spotify)$" manage=off
 
 # signals
 yabai -m signal --add event=window_destroyed active=yes action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null"
