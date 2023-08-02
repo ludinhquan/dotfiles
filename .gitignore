@@ -4,6 +4,7 @@
 !.config/alacritty
 !.config/awesome
 !.config/nvim
+!.config/picom
 !.config/skhd
 !.config/tmux
 !.config/yabai

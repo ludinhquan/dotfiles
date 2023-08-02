@@ -4,7 +4,7 @@ alias ll='ls --color=auto -alF'
 alias vidotfiles="cd $HOME/dotfiles && nvim"
 
 # execute script
-alias v="h_split"
+alias v="horizontal_split"
 alias gconfig="cp -i ~/.scripts/git-config . && . ./git-config"
 alias gg=". ~/.scripts/go-dir"
 

@@ -17,7 +17,6 @@ lua <<EOF
       packages = {
         enable = false,
       },
-      disable_move = true,
       shortcut = {
         {
           icon = ' ',

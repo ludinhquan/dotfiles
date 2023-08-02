@@ -6,7 +6,6 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-eval $(/opt/homebrew/bin/brew shellenv)
 
 export HISTFILE="$ZDOTDIR/.zsh_history"    # History filepath
 export HISTSIZE=1000000                   # Maximum events for internal history

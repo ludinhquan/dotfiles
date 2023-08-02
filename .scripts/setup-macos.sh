@@ -49,9 +49,10 @@ brew upgrade
 brew install ${brew[@]} #Homebrew App Installer
 brew install ${cask[@]} --cask #Casks Installer
 
-ln -s ~/dotfiles/.config/ ~/.config
-ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sfn ~/dotfiles/.config ~/.config
+ln -sfn ~/dotfiles/.scripts ~/.scripts
+ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/.zshenv ~/.zshenv
 
 #<----------------Changing MacOS Specific Preferences-------------------->
 defaults write com.apple.dock autohide-time-modifier -int 0 #Sets Dock Autohide Time to O Seconds

@@ -1,4 +1,5 @@
 [[ $commands[fnm] ]] && eval $(fnm env)
+[[ $commands[brew] ]] && eval $(/opt/homebrew/bin/brew shellenv)
 
 source $ZDOTDIR/config/zsh-options
 source $ZDOTDIR/config/zsh-prompt

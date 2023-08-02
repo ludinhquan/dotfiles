@@ -23,17 +23,10 @@ yay -S --answerclean None --answerdiff None spotify-tui
 # Create symlink
 cd $HOME/dotfiles
 
-stow alacritty &
-stow awesome &
-stow nvim &
-stow picom &
-stow ranger &
-stow rofi &
-stow tmux &
-stow wallpapers &
-stow x &
-stow zsh &
-ln -s $DOTFILE/scripts ~/.scripts
+ln -sfn ~/dotfiles/.config/ ~/.config
+ln -sfn ~/dotfiles/.scripts/ ~/.scripts
+ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 
 sudo chsh -s "$(command -v zsh)" "${USER}"
 
