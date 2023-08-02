@@ -12,13 +12,15 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/fzf'
 
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'kyazdani42/nvim-tree.lua', 
+  Plug 'simeji/winresizer'
+  Plug 'nvim-lualine/lualine.nvim'
+  Plug 'norcalli/nvim-colorizer.lua'
+
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
   Plug 'APZelos/blamer.nvim'
   Plug 'tpope/vim-surround'
-  Plug 'simeji/winresizer'
-
-  Plug 'nvim-lualine/lualine.nvim'
-  Plug 'norcalli/nvim-colorizer.lua'
   Plug 'windwp/nvim-autopairs'
   Plug 'karb94/neoscroll.nvim'
   Plug 'nvim-treesitter/nvim-treesitter'
@@ -28,8 +30,6 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'glepnir/dashboard-nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'rest-nvim/rest.nvim'
-  Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'kyazdani42/nvim-tree.lua', 
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
   Plug 'nvimdev/template.nvim'
 

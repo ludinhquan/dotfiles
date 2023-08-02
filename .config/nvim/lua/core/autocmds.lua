@@ -61,10 +61,6 @@ local defaultCommands = {
     -- will cause split windows to be resized evenly if main window is resized
     { "VimResized", "*", "wincmd =" },
   },
-  _packer_compile = {
-    -- will run PackerCompile after writing plugins.lua
-    { "BufWritePost", "plugins.lua", "PackerCompile" },
-  },
   _general_lsp = {
     { "FileType", "lspinfo", "nnoremap <silent> <buffer> q :q<CR>" },
   },
