@@ -44,6 +44,7 @@ local default_options = {
   scrolloff = 8, -- is one of my fav
   sidescrolloff = 8,
   autoread=true,
+  laststatus=3 
 } ---  VIM ONLY COMMANDS  ---cmd "filetype plugin on"cmd('let &titleold="' .. TERMINAL .. '"')cmd "set inccommand=split"cmd "set iskeyword+=-"
 
 ---  SETTINGS  ---

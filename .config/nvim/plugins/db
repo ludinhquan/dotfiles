@@ -1,7 +1,0 @@
-let g:dbs = {
-\ '[Mongodb]': 'mongodb://{username}:{password}@{address}/{db}
-\ }
-
-let g:db_ui_use_nerd_fonts =1
-
-nmap <Leader>n :DBUIToggle<CR>

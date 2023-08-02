@@ -25,6 +25,8 @@ brew=(
     ripgrep
     tmux
     yabai
+    ranger
+    mongosh
 )
 cask=(
     alacritty

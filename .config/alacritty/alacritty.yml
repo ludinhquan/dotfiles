@@ -23,7 +23,7 @@ font:
   italic:
     family: Hack Nerd Font
     style: Medium,Regular
-  size: 14
+  size: 16
   offset:
     x: 0
     y: 0
@@ -85,4 +85,3 @@ shell:
     - -l
     - -c
     - eval $(which tmux)
-
