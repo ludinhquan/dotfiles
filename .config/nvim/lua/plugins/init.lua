@@ -12,16 +12,20 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+  { 'nvim-lua/plenary.nvim', lazy = true },
   { 'nvim-tree/nvim-web-devicons', lazy = true },
-  { 'norcalli/nvim-colorizer.lua' },
-  { 'simeji/winresizer', lazy = true },
   { 
+    'nvim-treesitter/nvim-treesitter',
+    build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = { "TSUpdateSync" },
+  },
+  { 'norcalli/nvim-colorizer.lua' },
+  { 'simeji/winresizer', lazy = true }, { 
     'nvim-lualine/lualine.nvim', 
+    event = 'VeryLazy',
     opts = function()
       return require 'plugins.configs.lualine'
-    end,
-    config = function(_, opts)
-      require('lualine').setup(opts)
     end,
   },
   {
@@ -33,12 +37,54 @@ local plugins = {
     opts = function()
       return require 'plugins.configs.nvimtree'
     end,
-    config = function(_, opts)
-      require('nvim-tree').setup(opts)
+  },
+  {
+    'romgrk/barbar.nvim',
+    event = 'VeryLazy',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    init = function()
+      require('core.utils').load_mappings 'barbar'
     end,
   },
+  {
+    'numToStr/Comment.nvim',
+    event = 'VeryLazy',
+    init = function()
+      require('core.utils').load_mappings 'comment'
+    end,
+    config = function(_, opts)
+      require('Comment').setup(opts)
+    end,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    init = function()
+      require('core.utils').load_mappings 'telescope'
+    end,
+    opts = function()
+      return require 'plugins.configs.telescope'
+    end,
+  },
+  {
+    'williamboman/mason.nvim',
+    config = function(_, opts)
+      require('mason').setup {}
+    end,
+  },
+  {
+    'neovim/nvim-lspconfig',
+    config = function(_, opts)
+      require('plugins.configs.lspconfig')
+    end,
+    dependencies = {
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+    },
+  },
+  -- {'hrsh7th/nvim-cmp'},     -- Required
+  -- {'hrsh7th/cmp-nvim-lsp'}, -- Required
+  -- {'L3MON4D3/LuaSnip'},     -- Required
 }
 
 require('lazy').setup(plugins, {})
-
--- red

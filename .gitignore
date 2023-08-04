@@ -1,4 +1,5 @@
 .DS_Store
+.git
 
 .config/*
 !.config/alacritty
@@ -11,4 +12,3 @@
 !.config/zsh
 !.config/ranger
 !.config/rofi
-

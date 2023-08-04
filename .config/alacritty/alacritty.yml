@@ -23,7 +23,7 @@ font:
   italic:
     family: Hack Nerd Font
     style: Medium,Regular
-  size: 16
+  size: 10
   offset:
     x: 0
     y: 0
