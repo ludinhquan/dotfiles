@@ -22,14 +22,7 @@ nnoremap <silent>    <A-p> :BufferPin<CR>
 " Close buffer
 nnoremap  <Leader>x :BufferCloseAllButCurrent<CR>
 nnoremap  <C-x> :BufferClose<CR>
-" Wipeout buffer
-"                          :BufferWipeout<CR>
-" Close commands
-"                          :BufferCloseAllButCurrent<CR>
-"                          :BufferCloseAllButPinned<CR>
-"                          :BufferCloseBuffersLeft<CR>
-"                          :BufferCloseBuffersRight<CR>
-" Magic buffer-picking mode
+
 " Sort automatically by...
 nnoremap <silent> <C-p> :BufferPick<CR>
 nnoremap <silent> <Space>bb :BufferOrderByBufferNumber<CR>

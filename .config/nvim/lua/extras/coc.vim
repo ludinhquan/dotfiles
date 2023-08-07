@@ -120,7 +120,7 @@ vnoremap <Leader>fm :CocCommand formatJson.selected --indent=2 --quote="<CR>
 
 nnoremap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
-# nmap <leader>do <Plug>(coc-codeaction)
+nmap <leader>do <Plug>(coc-codeaction)
 
 nmap <silent> [a <Plug>(coc-diagnostic-prev)
 nmap <silent> ]a <Plug>(coc-diagnostic-next)

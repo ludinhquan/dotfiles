@@ -21,7 +21,7 @@ vim.cmd([[
   inoremap <C-\> <Esc>:vsplit<CR>
 
   " Source nvim
-  nnoremap <Leader><Leader>r :source ~/.config/nvim/init.vim<CR>
+  nnoremap <Leader><Leader>r :source ~/.config/nvim/init.lua<CR>
 
   inoremap jk <ESC>
   inoremap kj <ESC>
@@ -72,7 +72,6 @@ vim.cmd([[
 
   " Don't copy the replaced text after pasting in visual mode
   " https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
-  nnoremap <silent> p p:let @+=@0<CR>:let @"=@0<CR>
   xnoremap <silent> p p:let @+=@0<CR>:let @"=@0<CR>
 
   hi Normal guibg=NONE ctermbg=NONE
