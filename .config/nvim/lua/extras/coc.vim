@@ -1,34 +1,14 @@
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
-
 " Coc config
 let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-json',
-    \ 'coc-format-json',
+    \ 'coc-lua',
+    \ 'coc-go',
+    \ 'coc-prisma',
     \ 'coc-spell-checker',
+    \ 'coc-format-json',
     \  ]
 let g:coc_snippet_next = '<tab>'
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by

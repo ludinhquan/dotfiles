@@ -21,13 +21,18 @@ M.mappings = {
       ["<Leader>p"] = { "<cmd> Telescope find_files hidden=true<CR>", "Find files" },
       ["<Leader>f"] = { "<cmd> Telescope live_grep <CR>", "Find words in current project" },
       ["<Leader>s"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find words in current file" },
+      ["<Leader>l"] = { "<cmd> Telescope find_files search_dirs={'.ships'} <CR>", "Find words in current file" },
     }
   },
-  rest = {
+  resize = {
     n = {
-      ["R"] = { "<Plug>RestNvim", "Execute api" },
-      ["<Leader>u"] = { "<Plug>RestNvimPreview", "Preview curl" },
-      ["<Leader>i"] = { "<Plug>RestNvimLast", "Execute last endpoint" },
+      ["<C-e>"] = { "<cmd> WinResizerStartResize <CR>", "Start resize buffer" },
+    }
+  },
+  nvimship = {
+    n = {
+      ["R"] = { "<cmd> Ship <CR>", "Execute api" },
+      ["X"] = { "<cmd> ShipCloseResponse <CR>", "Close all response" },
     }
   },
 }

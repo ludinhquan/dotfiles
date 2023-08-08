@@ -24,8 +24,8 @@ cmd - h  : yabai -m space --focus prev
 cmd - l  : yabai -m space --focus next
 
 # send window to desktop and follow focus
-ctrl + alt - a : yabai -m window --space prev; yabai -m space --focus prev
-ctrl + alt - d : yabai -m window --space next; yabai -m space --focus next
+ctrl + alt - h : yabai -m window --space prev; yabai -m space --focus prev
+ctrl + alt - l : yabai -m window --space next; yabai -m space --focus next
 
 # rotate tree
 ctrl + alt - r : yabai -m space --rotate 180
