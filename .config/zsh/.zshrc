@@ -9,6 +9,7 @@ source $ZDOTDIR/config/zsh-functions
 source $ZDOTDIR/config/zsh-vim-mode
 
 zsh_add_file "completions/docker.zsh"
+zsh_add_file ".zshenv.local"
 
 # pnpm
 export PNPM_HOME="/Users/ldquan/.config/local/share/pnpm"
