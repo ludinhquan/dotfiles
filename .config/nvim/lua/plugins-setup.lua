@@ -146,9 +146,10 @@ lazy.setup({
 
   -- colors
   {
-    'norcalli/nvim-colorizer.lua',
-    config = function () require 'plugins.colorizer' end,
-  },
+    "RRethy/vim-hexokinase",
+    build = "make hexokinase",
+    init = function () require 'plugins.colorizer' end,
+  }
 })
 
 require "plugins.float-term"
