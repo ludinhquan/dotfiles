@@ -30,7 +30,6 @@ local LSP = {
   TelescopeBorder = { fg = C.cyan, bg = Config.transparent_background and "NONE" or C.bg },
   NvimTreeFolderIcon = { fg = C.blue },
   NvimTreeIndentMarker = { fg = C.gray },
-  NvimTreeNormal = { fg = C.light_gray, bg = C.alt_bg },
   NvimTreeVertSplit = { fg = C.alt_bg, bg = C.alt_bg },
   NvimTreeFolderName = { fg = C.blue },
   NvimTreeOpenedFolderName = { fg = C.cyan, style = "italic" },

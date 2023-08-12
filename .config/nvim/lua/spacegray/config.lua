@@ -13,7 +13,7 @@ local function opt(key, default)
 end
 
 config = {
-  transparent_background = opt("transparent_background", false),
+  transparent_background = opt("transparent_background", true),
   italic_comments = opt("italic_keywords", true) and "italic" or "NONE",
   italic_keywords = opt("italic_keywords", true) and "italic" or "NONE",
   italic_functions = opt("italic_function", false) and "italic" or "NONE",
