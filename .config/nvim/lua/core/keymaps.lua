@@ -71,7 +71,7 @@ keymap.set('n', '<leader>e', '<cmd> NvimTreeToggle <CR>')
 keymap.set("n", "<leader>p", "<cmd>Telescope find_files hidden=true<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>l", "<cmd>find_files search_dirs={'.ships'}<cr>") -- find http request
+keymap.set("n", "<leader>l", "<cmd>Telescope find_files search_dirs={'.ships'}<cr>") -- find http request
 
 -- barbar
 keymap.set("n", "<C-j>", "<cmd> BufferPrevious <cr>")

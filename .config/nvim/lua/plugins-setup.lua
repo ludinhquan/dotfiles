@@ -126,7 +126,7 @@ lazy.setup({
     ft = 'ship',
     cmd = { "ShipCreate", "ShipCreateEnv" },
     dependencies = { 'javiorfo/nvim-spinetta', 'javiorfo/nvim-popcorn' },
-    config = function () require 'plugins.ship' end,
+    config = function () require 'plugins.nvim-ship' end,
   },
   {
     'prisma/vim-prisma',

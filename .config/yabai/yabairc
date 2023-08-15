@@ -28,6 +28,7 @@ yabai -m space 7 --label social
 # window rules
 yabai -m rule --add app=".*" manage=off
 yabai -m rule --add app="^Alacritty$" manage=on
+yabai -m rule --add app="^iTerm2$" manage=on
 yabai -m rule --add app="^Safari$" manage=on
 
 # signals

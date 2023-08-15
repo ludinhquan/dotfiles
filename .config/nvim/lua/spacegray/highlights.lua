@@ -96,7 +96,7 @@ local highlights = {
   SignColumn = {fg = none, bg = none },
   NormalNC = {fg = none, bg = none },
   MsgArea = {fg = none, bg = none },
-  NormalFloat = {fg = none, bg = none },
+  -- NormalFloat = {fg = none, bg = none },
   FloatBorder = {fg = C.cyan, bg = none },
   NvimTreeNormal = {fg = none, bg = none },
   -- BufferCurrent = {fg = "#D8DEE9", bg = "#265F78" },
