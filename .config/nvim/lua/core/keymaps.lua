@@ -11,6 +11,7 @@ keymap.set('n', '<CR>', 'A<CR>')
 
 keymap.set('i', '<C-s>', '<cmd> w <CR>')
 keymap.set('n', '<C-s>', '<cmd> w <CR>')
+keymap.set('v', '<C-s>', '<cmd> w <CR>')
 
 keymap.set('n', '<leader>q', '<cmd> q <CR>')
 keymap.set('n', '<ESC><ESC>', '<cmd> nohlsearch <CR>')
