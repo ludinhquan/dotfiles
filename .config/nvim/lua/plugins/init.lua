@@ -16,7 +16,7 @@ local plugins = {
   { 'nvim-tree/nvim-web-devicons', lazy = true },
   { 'norcalli/nvim-colorizer.lua' },
   { 'neoclide/coc.nvim', event = 'VeryLazy', branch = 'release' },
-  { 
+  {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
@@ -24,12 +24,12 @@ local plugins = {
     opts = function()
       return require 'plugins.configs.treesitter'
     end,
-    config = function(_, opts) 
+    config = function(_, opts)
       require('nvim-treesitter.configs').setup(opts)
     end,
   },
-  { 'simeji/winresizer', lazy = true }, { 
-    'nvim-lualine/lualine.nvim', 
+  { 'simeji/winresizer', lazy = true }, {
+    'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
     opts = function()
       return require 'plugins.configs.lualine'
@@ -66,7 +66,7 @@ local plugins = {
     opts = function()
       return require 'plugins.configs.dashboard'
     end,
-    config = function(_, opts) 
+    config = function(_, opts)
       require('dashboard').setup(opts)
     end,
     dependencies = { {'nvim-tree/nvim-web-devicons'}}

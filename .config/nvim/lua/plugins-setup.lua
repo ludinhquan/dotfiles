@@ -149,6 +149,10 @@ lazy.setup({
     "RRethy/vim-hexokinase",
     build = "make hexokinase",
     init = function () require 'plugins.colorizer' end,
+  },
+  {
+    'tpope/vim-surround',
+    event = 'VeryLazy'
   }
 })
 

@@ -99,9 +99,5 @@ local highlights = {
   -- NormalFloat = {fg = none, bg = none },
   FloatBorder = {fg = C.cyan, bg = none },
   NvimTreeNormal = {fg = none, bg = none },
-  -- BufferCurrent = {fg = "#D8DEE9", bg = "#265F78" },
-  -- BufferCurrentSign = {fg = "#D8DEE9", bg = "#265F78" },
-  -- BufferCurrentMod = {fg = "#D8DEE9", bg = "#265F78" },
 }
-
 return highlights

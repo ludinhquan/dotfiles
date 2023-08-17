@@ -48,7 +48,7 @@ local LSP = {
   LirDir = { fg = C.blue },
   LirSymLink = { fg = C.cyan },
   LirEmptyDirText = { fg = C.blue },
-  BufferCurrent = { fg = C.fg, bg = C.bg },
+  BufferCurrent = { fg = C.white, bg = C.sign_change },
   BufferCurrentIndex = { fg = C.fg, bg = C.bg },
   BufferCurrentMod = { fg = C.info_yellow, bg = C.bg },
   BufferCurrentSign = { fg = C.hint_blue, bg = C.bg },
