@@ -1,3 +1,4 @@
-require"core.default-config"  
-require"core.mappings"  
-require"core.autocmds"
+require("core.colorscheme")
+require("core.autocommands")
+require("core.keymaps")
+require("core.options")

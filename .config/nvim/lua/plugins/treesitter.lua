@@ -1,6 +1,8 @@
 -- import nvim-treesitter plugin safely
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
-if not status then return end
+if not status then
+  return
+end
 
 -- configure treesitter
 treesitter.setup({
@@ -30,7 +32,14 @@ treesitter.setup({
     "vim",
     "dockerfile",
     "gitignore",
+    "rust",
   },
   -- auto install above language parsers
   auto_install = true,
 })
+
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo.foldenable = false -- can be enabled directly in opened file - using 'zi' - toogle fold
+
+-- vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx" })

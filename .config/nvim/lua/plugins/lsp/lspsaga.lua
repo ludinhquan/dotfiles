@@ -9,18 +9,25 @@ saga.setup({
   definition = {
     keys = {
       vsplit = "i",
-    }
+      quit = "q",
+    },
+  },
+  imp = {
+    keys = {
+      vsplit = "i",
+      quit = "q",
+    },
   },
   finder = {
     keys = {
       vsplit = "i",
-      quit = "<ESC>",
-    }
+      quit = "q",
+    },
   },
   rename = {
     in_select = false,
     keys = {
-      quit = '<esc>'
-    }
-  }
+      quit = "q",
+    },
+  },
 })
