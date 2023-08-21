@@ -2,7 +2,7 @@
 cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 # open browser
-cmd - b : open -n /Applications/Safari.app
+cmd - b : open -n /Applications/Brave\ Browser.app
 
 # reload yabai
 shift + alt - r : yabai --restart-service
@@ -24,8 +24,8 @@ cmd - h  : yabai -m space --focus prev
 cmd - l  : yabai -m space --focus next
 
 # send window to desktop and follow focus
-ctrl + alt - a : yabai -m window --space prev; yabai -m space --focus prev
-ctrl + alt - d : yabai -m window --space next; yabai -m space --focus next
+ctrl + alt - h : yabai -m window --space prev; yabai -m space --focus prev
+ctrl + alt - l : yabai -m window --space next; yabai -m space --focus next
 
 # rotate tree
 ctrl + alt - r : yabai -m space --rotate 180
@@ -57,10 +57,11 @@ cmd + ctrl - d : yabai -m space --layout $(yabai -m query --spaces --space | jq 
 
 # toggle window zoom
 alt - d : yabai -m window --toggle zoom-parent
-alt - f : yabai -m window --toggle zoom-fullscreen
+alt - f : yabai -m space --layout "$(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')"
 
 # float / unfloat window and center on screen
-alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+alt - t : yabai -m window --toggle float --grid 100:100:1:1:98:98
 
 # toggle sticky(+float), topmost, picture-in-picture
 alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
+

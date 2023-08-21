@@ -1,4 +1,5 @@
 .zsh_sessions
 .zsh_history
+.zshenv.local
 .zcompdump
 plugins
