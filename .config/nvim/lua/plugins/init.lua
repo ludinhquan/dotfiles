@@ -15,7 +15,7 @@ local plugins = {
   { 'nvim-lua/plenary.nvim', lazy = true },
   { 'nvim-tree/nvim-web-devicons', lazy = true },
   { 'norcalli/nvim-colorizer.lua' },
-  { 'neoclide/coc.nvim', event = 'VeryLazy', branch = 'release' },
+  { 'neoclide/coc.nvim', branch = 'release' },
   {
     'romgrk/barbar.nvim',
     event = 'VeryLazy',
@@ -24,7 +24,7 @@ local plugins = {
       require('core.utils').load_mappings 'barbar'
     end,
   },
-  { 
+  {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
@@ -32,12 +32,12 @@ local plugins = {
     opts = function()
       return require 'plugins.configs.treesitter'
     end,
-    config = function(_, opts) 
+    config = function(_, opts)
       require('nvim-treesitter.configs').setup(opts)
     end,
   },
-  { 'simeji/winresizer', lazy = true }, { 
-    'nvim-lualine/lualine.nvim', 
+  {
+    'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
     opts = function()
       return require 'plugins.configs.lualine'
@@ -61,6 +61,7 @@ local plugins = {
     end,
     config = function(_, opts)
       require('Comment').setup(opts)
+      require('Comment.ft').set('ship', '#%s')
     end,
   },
   {
@@ -69,7 +70,7 @@ local plugins = {
     opts = function()
       return require 'plugins.configs.dashboard'
     end,
-    config = function(_, opts) 
+    config = function(_, opts)
       require('dashboard').setup(opts)
     end,
     dependencies = { {'nvim-tree/nvim-web-devicons'}}
@@ -84,35 +85,26 @@ local plugins = {
       return require 'plugins.configs.telescope'
     end,
   },
-  { 
+  {
     'windwp/nvim-autopairs',
     event = 'VeryLazy',
     opts = function()
       return require 'plugins.configs.autopairs'
     end,
-    config = function(_, opts) 
+    config = function(_, opts)
       require('nvim-autopairs').setup(opts)
     end,
   },
-  { 
+  {
     'karb94/neoscroll.nvim',
-    event = 'VeryLazy',
-    config = function(_, opts) 
+    config = function(_, _)
       require('plugins.configs.neoscroll')
     end,
   },
-  { 
-    'rest-nvim/rest.nvim',
-    event = 'VeryLazy',
-    cmd = {'RestNvim', 'RestNvimPreview', 'RestNvimLast'}, 
+  {
+    'simeji/winresizer',
     init = function()
-      require('core.utils').load_mappings 'rest'
-    end,
-    opts = function()
-      return require 'plugins.configs.rest'
-    end,
-    config = function(_, opts)
-      return require('rest-nvim').setup(opts)
+      require('core.utils').load_mappings 'resize'
     end,
   },
   {
@@ -131,7 +123,30 @@ local plugins = {
     config = function(_, opts)
       return require('ship').setup(opts)
     end
-}
+  },
+  {
+    'prisma/vim-prisma',
+    ft = 'prisma',
+    event = 'VeryLazy'
+  },
+  {
+    'rest-nvim/rest.nvim',
+    opts = function()
+      return require 'plugins.configs.rest'
+    end,
+    init = function()
+      require('core.utils').load_mappings 'rest'
+    end,
+  },
+  {
+   'phaazon/hop.nvim',
+    init = function()
+      require('core.utils').load_mappings 'hop'
+    end,
+    config = function(_, opts)
+      require('plugins.configs.hop')
+    end
+  }
 }
 
 require('lazy').setup(plugins, {})

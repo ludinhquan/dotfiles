@@ -1,34 +1,14 @@
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
-
 " Coc config
 let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-json',
-    \ 'coc-format-json',
+    \ 'coc-lua',
+    \ 'coc-go',
+    \ 'coc-prisma',
     \ 'coc-spell-checker',
+    \ 'coc-format-json',
     \  ]
 let g:coc_snippet_next = '<tab>'
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -91,39 +71,59 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nnoremap <silent> K :call ShowDocumentation()<CR>
 
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
+function! ShowDocumentation()
+  if coc#float#has_float()
+    echo "has float"
+    execute 'wincmd w'
+    return
+  endif
+
+  if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
     call feedkeys('K', 'in')
   endif
 endfunction
 
+" function! ShowDocumentation()
+"   if CocAction('hasProvider', 'hover')
+"     if !exists('g:coc_hover_shown') || g:coc_hover_shown == 0
+"       call CocActionAsync('doHover')
+"       let g:coc_hover_shown = 1
+"     else
+"       call CocActionAsync('hideHover')
+"       let g:coc_hover_shown = 0
+"     endif
+"   else
+"     call feedkeys('K', 'in')
+"   endif
+" endfunction
+
+" Highlight the symbol and its references when holding the cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+
+nnoremap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
+nnoremap <silent> gy :call CocAction('jumpTypeDefinition', 'vsplit')<CR>
+nnoremap <silent> gi :call CocAction('jumpImplementation', 'vsplit')<CR>
+nnoremap <silent> gr :call CocAction('jumpReferences', 'vsplit')<CR>
+
+nnoremap <leader>ca <Plug>(coc-codeaction)
+nnoremap <silent>[g <Plug>(coc-diagnostic-prev)
+nnoremap <silent>]g <Plug>(coc-diagnostic-next)
+nnoremap <silent>[a <Plug>(coc-diagnostic-prev-error)
+nnoremap <silent>]a <Plug>(coc-diagnostic-next-error)
+
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nnoremap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap fm  <Plug>(coc-format-selected)
-nmap fm  <Plug>(coc-format-selected)
-
-nnoremap <silent> gs :call CocAction('jumpDefinition', 'drop')<CR>
-nnoremap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
-nnoremap <silent> gt :call CocAction('jumpDefinition', 'tabe')<CR>
+xnoremap fm  <Plug>(coc-format-selected)
+nnoremap fm  <Plug>(coc-format-selected)
 
 vnoremap <Leader>fm :CocCommand formatJson.selected --indent=2 --quote="<CR>
-
-nnoremap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader>do <Plug>(coc-codeaction)
-
-nmap <silent> [a <Plug>(coc-diagnostic-prev)
-nmap <silent> ]a <Plug>(coc-diagnostic-next)
 
 augroup mygroup
   autocmd!
@@ -131,35 +131,45 @@ augroup mygroup
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+
+	autocmd BufWritePre *.rs,*.ts,*.tsx,*.json,*.lua call CocAction('format')
 augroup end
 
-" Remap <C-j> and <C-k> for scroll float windows/popups.
-if has('nvim') 
-  let g:coc_snippet_next = ''
-  let g:coc_snippet_prev = ''
-  nnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : ":BufferPrevious<CR>"
-  nnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : ":BufferNext<CR>"
-  vnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>"
-  vnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-k>"
-endif
-"
+" Applying code actions to the selected code block
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-if has('CocActionAsync')
-  " Highlight the symbol and its references when holding the cursor.
-  autocmd CursorHold * silent call CocActionAsync('highlight')
-endif
+" Remap keys for applying code actions at the cursor position
+nmap <leader>ac  <Plug>(coc-codeaction-cursor)
+" Remap keys for apply code actions affect whole buffer
+nmap <leader>as  <Plug>(coc-codeaction-source)
+" Apply the most preferred quickfix action to fix diagnostic on the current line
 
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+" Remap keys for applying refactor code actions
+nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
+xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
 
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+" Run the Code Lens action on the current line
+nmap <leader>cl  <Plug>(coc-codelens-action)
 
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
-" Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+" Remap <C-f> and <C-b> to scroll float windows/popups
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"

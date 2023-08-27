@@ -21,13 +21,25 @@ M.mappings = {
       ["<Leader>p"] = { "<cmd> Telescope find_files hidden=true<CR>", "Find files" },
       ["<Leader>f"] = { "<cmd> Telescope live_grep <CR>", "Find words in current project" },
       ["<Leader>s"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find words in current file" },
+      ["<Leader>l"] = { "<cmd> Telescope find_files search_dirs={'.ships'} <CR>", "Find words in current file" },
+    }
+  },
+  resize = {
+    n = {
+      ["<C-e>"] = { "<cmd> WinResizerStartResize <CR>", "Start resize buffer" },
+    }
+  },
+  hop = {
+    n = {
+      ["s"] = { "<cmd> HopChar2 <CR>", "Search" },
+      ["S"] = { "<cmd> HopWord <CR>", "Search" },
     }
   },
   rest = {
     n = {
-      ["R"] = { "<Plug>RestNvim", "Execute api" },
-      ["<Leader>u"] = { "<Plug>RestNvimPreview", "Preview curl" },
-      ["<Leader>i"] = { "<Plug>RestNvimLast", "Execute last endpoint" },
+      ["R"] = { "<Plug>RestNvim <CR>", "Execute api" },
+      ["<Leader>u"] = { "<Plug>RestNvimPreview <CR>", "Close all response" },
+      ["<Leader>i"] = { "<Plug>RestNvimLast <CR>", "Close all response" },
     }
   },
 }

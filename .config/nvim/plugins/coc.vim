@@ -112,9 +112,9 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap fm  <Plug>(coc-format-selected)
 nmap fm  <Plug>(coc-format-selected)
 
-nnoremap <silent> gs :call CocAction('jumpDefinition', 'drop')<CR>
-nnoremap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
-nnoremap <silent> gt :call CocAction('jumpDefinition', 'tabe')<CR>
+nnoremap <silent> gd :call CocAction('coc-definition', 'vsplit')<CR>
+nnoremap <silent> gy :call CocAction('coc-type-definition', 'vsplit')<CR>
+nnoremap <silent> gi :call CocAction('coc-implementation', 'vsplit')<CR>
 
 vnoremap <Leader>fm :CocCommand formatJson.selected --indent=2 --quote="<CR>
 
