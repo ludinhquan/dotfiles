@@ -12,9 +12,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  { 'nvim-lua/plenary.nvim', lazy = true },
+  { 'nvim-lua/plenary.nvim',       lazy = true },
   { 'nvim-tree/nvim-web-devicons', lazy = true },
-  { 'norcalli/nvim-colorizer.lua' },
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('plugins.configs.colorizer')
+    end
+  },
   { 'neoclide/coc.nvim', branch = 'release' },
   {
     'romgrk/barbar.nvim',
@@ -73,7 +78,7 @@ local plugins = {
     config = function(_, opts)
       require('dashboard').setup(opts)
     end,
-    dependencies = { {'nvim-tree/nvim-web-devicons'}}
+    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -139,7 +144,7 @@ local plugins = {
     end,
   },
   {
-   'phaazon/hop.nvim',
+    'phaazon/hop.nvim',
     init = function()
       require('core.utils').load_mappings 'hop'
     end,

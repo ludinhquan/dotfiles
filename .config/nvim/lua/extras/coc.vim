@@ -7,6 +7,8 @@ let g:coc_global_extensions = [
     \ 'coc-prisma',
     \ 'coc-spell-checker',
     \ 'coc-format-json',
+    \ 'coc-eslint',
+    \ 'coc-prettier',
     \  ]
 let g:coc_snippet_next = '<tab>'
 
@@ -105,6 +107,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
+nnoremap <silent> gs :call CocAction('jumpDefinition', 'drop')<CR>
 nnoremap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
 nnoremap <silent> gy :call CocAction('jumpTypeDefinition', 'vsplit')<CR>
 nnoremap <silent> gi :call CocAction('jumpImplementation', 'vsplit')<CR>
@@ -124,16 +127,6 @@ xnoremap fm  <Plug>(coc-format-selected)
 nnoremap fm  <Plug>(coc-format-selected)
 
 vnoremap <Leader>fm :CocCommand formatJson.selected --indent=2 --quote="<CR>
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-
-	autocmd BufWritePre *.rs,*.ts,*.tsx,*.json,*.lua call CocAction('format')
-augroup end
 
 " Applying code actions to the selected code block
 " Example: `<leader>aap` for current paragraph
@@ -165,7 +158,6 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-
 " Remap <C-f> and <C-b> to scroll float windows/popups
 nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
@@ -173,3 +165,17 @@ inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float
 inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+
+
+" Add `:Format` command to format current buffer with language server
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Prettier` command to format current buffer with prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" Add `:eslint` command to format current buffer with eslint
+command! -nargs=0 Eslint :CocCommand eslint.executeAutofix
+
+autocmd BufWritePre *.rs,*.json,*.lua :Format
+autocmd BufWritePre *.css,*.scss :Prettier
+autocmd BufWritePre *.js,*.ts,*.tsx :Eslint
