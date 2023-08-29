@@ -1,6 +1,8 @@
 local autocommands = {}
 
-local defaultCommands = {}
+local defaultCommands = {
+  Reload = { "CursorHold * checktime" }
+}
 
 function autocommands.define_augroups(definitions) -- {{{1
   -- Create autocommand groups based on the passed definitions
