@@ -20,7 +20,13 @@ local plugins = {
       require('plugins.configs.colorizer')
     end
   },
-  { 'neoclide/coc.nvim', branch = 'release' },
+  {
+    'neoclide/coc.nvim',
+    branch = 'release',
+    config = function ()
+      require('plugins.configs.coc')
+    end
+  },
   {
     'romgrk/barbar.nvim',
     event = 'VeryLazy',
@@ -117,19 +123,6 @@ local plugins = {
     branch = 'master'
   },
   {
-    'javiorfo/nvim-ship',
-    lazy = true,
-    ft = 'ship',
-    cmd = { "ShipCreate", "ShipCreateEnv" },
-    dependencies = { 'javiorfo/nvim-spinetta', 'javiorfo/nvim-popcorn' },
-    opts = function()
-      return require 'plugins.configs.nvimship'
-    end,
-    config = function(_, opts)
-      return require('ship').setup(opts)
-    end
-  },
-  {
     'prisma/vim-prisma',
     ft = 'prisma',
     event = 'VeryLazy'
@@ -150,6 +143,24 @@ local plugins = {
     end,
     config = function(_, opts)
       require('plugins.configs.hop')
+    end
+  },
+  {
+    'pwntester/octo.nvim',
+    cmd = "Octo",
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('plugins.configs.octo')
+    end
+  },
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('plugins.configs.gitsigns')
     end
   }
 }

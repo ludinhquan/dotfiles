@@ -1,5 +1,5 @@
 local options = {
- toggler = {
+  toggler = {
     ---Line-comment toggle keymap
     line = 'cl',
     ---Block-comment toggle keymap
