@@ -3,5 +3,6 @@
   "diagnostic.errorSign": "",
   "diagnostic.infoSign": "",
   "suggest.maxCompleteItemCount": 20,
-  "coc.preferences.maxFileSize": "100MB"
+  "coc.preferences.maxFileSize": "100MB",
+  "coc.preferences.formatOnSave": true
 }
