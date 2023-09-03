@@ -6,7 +6,6 @@ if not status_ok then return end
 
 local lib = require("nvim-tree.lib")
 local api = require("nvim-tree.api")
-local renderer = require("nvim-tree.renderer")
 
 local function node_collapse()
   local node = lib.get_node_at_cursor()
@@ -117,7 +116,9 @@ local options = {
     indent_width = 2,
     highlight_git = true,
     indent_markers = { enable = true },
-    icons = { show = { git = false } }
+    icons = {
+      show = { git = false },
+    }
   },
   on_attach = on_attach
 }

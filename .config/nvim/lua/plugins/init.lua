@@ -32,18 +32,18 @@ local plugins = {
     'romgrk/barbar.nvim',
     event = 'VeryLazy',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    init = function()
-      require('core.utils').load_mappings 'barbar'
-    end,
+    -- init = function()
+    --   require('core.utils').load_mappings 'barbar'
+    -- end,
   },
   {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSUpdateSync" },
-    opts = function()
-      return require 'plugins.configs.treesitter'
-    end,
+    -- opts = function()
+    --   return require 'plugins.configs.treesitter'
+    -- end,
     config = function(_, opts)
       require('nvim-treesitter.configs').setup(opts)
     end,
@@ -51,16 +51,16 @@ local plugins = {
   {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
-    opts = function()
-      return require 'plugins.configs.lualine'
-    end,
+    -- opts = function()
+    --   return require 'plugins.configs.lualine'
+    -- end,
   },
   {
     'nvim-tree/nvim-tree.lua',
     cmd = { 'NvimTreeToggle', 'NvimTreeFindFile' },
-    init = function()
-      require('core.utils').load_mappings 'nvimtree'
-    end,
+    -- init = function()
+    --   require('core.utils').load_mappings 'nvimtree'
+    -- end,
     opts = function()
       return require 'plugins.configs.nvimtree'
     end,
@@ -90,9 +90,9 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
-    init = function()
-      require('core.utils').load_mappings 'telescope'
-    end,
+    -- init = function()
+    --   require('core.utils').load_mappings 'telescope'
+    -- end,
     opts = function()
       return require 'plugins.configs.telescope'
     end,
@@ -115,9 +115,9 @@ local plugins = {
   },
   {
     'simeji/winresizer',
-    init = function()
-      require('core.utils').load_mappings 'resize'
-    end,
+    -- init = function()
+    --   require('core.utils').load_mappings 'resize'
+    -- end,
   },
   {
     'mg979/vim-visual-multi',
@@ -133,15 +133,15 @@ local plugins = {
     opts = function()
       return require 'plugins.configs.rest'
     end,
-    init = function()
-      require('core.utils').load_mappings 'rest'
-    end,
+    -- init = function()
+    --   require('core.utils').load_mappings 'rest'
+    -- end,
   },
   {
     'phaazon/hop.nvim',
-    init = function()
-      require('core.utils').load_mappings 'hop'
-    end,
+    -- init = function()
+    --   require('core.utils').load_mappings 'hop'
+    -- end,
     config = function(_, opts)
       require('plugins.configs.hop')
     end
