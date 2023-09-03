@@ -26,6 +26,7 @@ local markdown = require "spacegray.markdown"
 local Whichkey = require "spacegray.Whichkey"
 local Git = require "spacegray.Git"
 local LSP = require "spacegray.LSP"
+local Transparent = require "spacegray.Transparent"
 
 local skeletons = {
   highlights,
@@ -35,6 +36,10 @@ local skeletons = {
   Git,
   LSP,
 }
+
+if Config.transparent_background then
+  table.insert(skeletons, Transparent)
+end
 
 for _, skeleton in ipairs(skeletons) do
   util.initialise(skeleton)

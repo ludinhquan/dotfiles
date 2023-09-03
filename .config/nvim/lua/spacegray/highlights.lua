@@ -16,7 +16,7 @@ local highlights = {
   Comment = { fg = C.gray, style = "italic" },
   Folded = { fg = C.accent, bg = C.alt_bg },
   FoldColumn = { fg = C.accent, bg = C.alt_bg },
-  LineNr = { fg = C.gray },
+  LineNr = { fg = C.fg, bg = Config.transparent_background and "NONE" or C.bg },
   FloatBoder = { fg = C.gray, bg = C.alt_bg },
   Whitespace = { fg = C.bg },
   VertSplit = { bg = C.light_blue },

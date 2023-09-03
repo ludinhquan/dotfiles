@@ -1,10 +1,10 @@
 local colors = {
   fg = "#ABB2BF",
-  bg = "#222222",
+  bg = "#292929",
   alt_bg = "#333333",
   dark = "#444444",
   accent = "#AAAAAA",
-  popup_back = "#2D2D30",
+  popup_back = "red",
   search_orange = "#613214",
   search_blue = "#5e81ac",
   white = "#D8DEE9",
