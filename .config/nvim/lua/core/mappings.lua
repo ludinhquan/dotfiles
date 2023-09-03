@@ -80,6 +80,8 @@ vim.cmd([[
   " https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
   xnoremap <silent> p p:let @+=@0<CR>:let @"=@0<CR>
 
+  imap <C-l> <Plug>(coc-snippets-expand)
+
 
   hi Normal guibg=NONE ctermbg=NONE
   hi LineNr guibg=NONE ctermbg=NONE

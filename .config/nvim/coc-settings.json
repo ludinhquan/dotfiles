@@ -4,5 +4,7 @@
   "diagnostic.infoSign": "",
   "suggest.maxCompleteItemCount": 20,
   "coc.preferences.maxFileSize": "100MB",
-  "coc.preferences.formatOnSave": true
+  "coc.preferences.formatOnSave": true,
+  "inlayHint.enable": false,
+  "snippets.ultisnips.pythonPrompt": false
 }

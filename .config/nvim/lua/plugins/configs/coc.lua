@@ -1,3 +1,19 @@
+vim.g.coc_global_extensions = {
+ 'coc-tsserver',
+ 'coc-lua',
+ 'coc-go',
+ 'coc-prisma',
+ 'coc-spell-checker',
+ 'coc-json',
+ 'coc-format-json',
+ 'coc-eslint',
+ 'coc-prettier',
+ 'coc-snippets',
+ 'coc-rust-analyzer'
+}
+
+vim.g.coc_snippet_next = '<tab>'
+
 local keyset = vim.keymap.set
 
 -- Autocomplete
