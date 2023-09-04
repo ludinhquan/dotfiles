@@ -4,7 +4,7 @@ local colors = {
   alt_bg = "#333333",
   dark = "#444444",
   accent = "#AAAAAA",
-  popup_back = "red",
+  popup_back = "#464646",
   search_orange = "#613214",
   search_blue = "#5e81ac",
   white = "#D8DEE9",
@@ -38,3 +38,4 @@ local colors = {
 }
 
 return colors
+

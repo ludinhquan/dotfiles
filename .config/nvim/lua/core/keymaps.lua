@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-local keymap = vim.keymap 
+local keymap = vim.keymap
 
 ---------------------
 -- General Keymaps
@@ -23,7 +23,7 @@ keymap.set('n', 'D', 'dd')
 keymap.set('n', '<leader>+', '<C-a>')
 keymap.set('n', '<leader>-', '<C-x>')
 
--- split window
+-- window management
 keymap.set('n', '<C-\\>', '<cmd> vsplit <CR>') -- split window
 keymap.set('n', '<C-h>', '<C-w>h')
 keymap.set('n', '<C-l>', '<C-w>l')
@@ -69,9 +69,9 @@ keymap.set('n', '<A-s>', '<cmd> NvimTreeFindFile <CR>')
 keymap.set('n', '<leader>e', '<cmd> NvimTreeToggle <CR>')
 
 -- telescope
-keymap.set("n", "<leader>p", "<cmd>Telescope find_files hidden=true<cr>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- find string under cursor in current working directory
+keymap.set("n", "<leader>p", "<cmd>Telescope find_files hidden=true<cr>")            -- find files within current working directory, respects .gitignore
+keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<cr>")                         -- find string in current working directory as you type
+keymap.set("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>")         -- find string under cursor in current working directory
 keymap.set("n", "<leader>l", "<cmd>Telescope find_files search_dirs={'.ships'}<cr>") -- find http request
 
 -- barbar
@@ -83,6 +83,11 @@ keymap.set("n", "<leader>x", "<cmd> BufferCloseAllButCurrent <cr>")
 -- resize
 keymap.set("n", "<C-e>", "<cmd> WinResizerStartResize <cr>")
 
--- nvim ship
-keymap.set("n", "R", "<cmd> Ship <cr>")
-keymap.set("n", "X", "<cmd> ShipCloseResponse <cr>")
+-- search character
+keymap.set("n", "s", "<cmd> HopChar2 <cr>")
+keymap.set("n", "S", "<cmd> HopWord <cr>")
+
+-- rest api
+keymap.set("n", "R", "<Plug> RestNvim <CR>")
+keymap.set("n", "<leader>u", "<Plug> RestNvimPreview <CR>")
+keymap.set("n", "<leader>i", "<Plug> RestNvimLast <CR>")
