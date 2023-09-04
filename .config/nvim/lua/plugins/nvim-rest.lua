@@ -1,4 +1,10 @@
-local options = { 
+local status_ok, rest = pcall(require, "rest-nvim")
+if not status_ok then
+  print "Failed to load rest-nvim"
+  return
+end
+
+rest.setup {
   result_split_horizontal = false,
   result_split_in_place = false,
   skip_ssl_verification = false,
@@ -14,7 +20,5 @@ local options = {
   jump_to_request = false,
   env_file = '.env',
   custom_dynamic_variables = {},
-  yank_dry_run = true,  
+  yank_dry_run = true,
 }
-
-return options
