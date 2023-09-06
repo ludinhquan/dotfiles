@@ -6,7 +6,7 @@ window:
     x: 8
     y: 8
   decorations: none
-  opacity: 0.9
+  opacity: 0.95
 scrolling:
   history: 10000
   multiplier: 3
@@ -23,7 +23,7 @@ font:
   italic:
     family: Hack Nerd Font
     style: Medium,Regular
-  size: 16
+  size: 14
   offset:
     x: 0
     y: 0
