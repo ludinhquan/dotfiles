@@ -18,7 +18,7 @@ null_ls.setup({
 	sources = {
 		--  to disable file types use
 		formatting.eslint_d, -- js/ts formatter
-		formatting.prettier, -- js/ts formatter
+		formatting.prettierd, -- js/ts formatter
 		formatting.stylua, -- lua formatter
 		diagnostics.eslint_d.with({ -- js/ts linter
 			condition = function(utils)

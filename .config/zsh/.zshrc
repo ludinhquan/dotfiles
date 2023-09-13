@@ -9,5 +9,5 @@ source $ZDOTDIR/config/zsh-aliases
 source $ZDOTDIR/config/zsh-functions
 source $ZDOTDIR/config/zsh-vim-mode
 
-zsh_add_file completions/docker.zsh
-zsh_add_file .zshenv.local
+zsh_add_file $ZDOTDIR/completions/docker.zsh
+zsh_add_file $ZDOTDIR/.zshenv.local

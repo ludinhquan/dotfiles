@@ -1,6 +1,6 @@
 function horizontal_split(){ 
   tmux split-window -h -c "#{pane_current_path}" -p 25
-    tmux select-pane -t 0
+  tmux select-pane -t 0
 }
 
 # set node version for current shell
@@ -14,3 +14,4 @@ set_node_version
 function kport(){
   kill -9 $(lsof -t -i:$1)
 }
+

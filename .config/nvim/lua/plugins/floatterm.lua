@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
   " Floating Term
   let s:float_term_border_win = 0
   let s:float_term_win = 0
@@ -49,7 +49,7 @@ vim.cmd [[
     let buf = nvim_create_buf(v:false, v:true)
     let s:float_term_win = nvim_open_win(buf, v:true, opts)
     " Styling
-    hi FloatWinBorder guifg=#87bb7c
+    hi FloatWinBorder guifg=#4EC9B0
     call setwinvar(s:float_term_border_win, '&winhl', 'Normal:FloatWinBorder')
     call setwinvar(s:float_term_win, '&winhl', 'Normal:Normal')
     if a:0 == 0
@@ -65,5 +65,5 @@ vim.cmd [[
   " Open terminal
   nnoremap <Leader>t :call FloatTerm()<CR>
   nnoremap <Leader>gs :call FloatTerm('lazygit')<CR>
-  nnoremap <Leader>o :call FloatTerm('ranger')<CR>
-]]
+  nnoremap <Leader>go :call FloatTerm('ranger')<CR>
+]])

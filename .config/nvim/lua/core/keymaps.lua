@@ -72,7 +72,8 @@ keymap.set("n", "<leader>e", "<cmd> NvimTreeToggle <CR>")
 keymap.set("n", "<leader>p", "<cmd>Telescope find_files hidden=true<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>l", "<cmd>Telescope find_files search_dirs={'.ships'}<cr>") -- find http request
+keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- find http request
+keymap.set("n", "<leader>gbc", "<cmd>Telescope git_bcommits<cr>") -- find http request
 
 -- barbar
 keymap.set("n", "<C-j>", "<cmd> BufferPrevious <cr>")
@@ -80,8 +81,14 @@ keymap.set("n", "<C-k>", "<cmd> BufferNext <cr>")
 keymap.set("n", "<C-x>", "<cmd> BufferClose <cr>")
 keymap.set("n", "<leader>x", "<cmd> BufferCloseAllButCurrent <cr>")
 
+-- noice
+keymap.set("n", "<C-c>", "<cmd> NoiceDismiss <cr>")
+
 -- resize
 keymap.set("n", "<C-e>", "<cmd> WinResizerStartResize <cr>")
+
+-- dadbodui
+keymap.set("n", "<leader>n", "<cmd> DBUIToggle <cr>")
 
 -- search character
 keymap.set("n", "s", "<cmd> HopChar2 <cr>")
@@ -91,6 +98,10 @@ keymap.set("n", "S", "<cmd> HopWord <cr>")
 keymap.set("n", "R", "<Plug> RestNvim <CR>")
 keymap.set("n", "<leader>u", "<Plug> RestNvimPreview <CR>")
 keymap.set("n", "<leader>i", "<Plug> RestNvimLast <CR>")
+
+-- session
+keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
+keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" }) -- save workspace session for current working directory
 
 -- open browser
 keymap.set("n", "go", "<cmd> call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX())) <CR>")

@@ -200,6 +200,17 @@ local plugins = {
 		end,
 	},
 	{
+		"nvimdev/lspsaga.nvim",
+		event = { "LspAttach" },
+		config = function()
+			require("plugins.lsp.lspsaga")
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
+		},
+	},
+	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		dependencies = {
@@ -213,6 +224,28 @@ local plugins = {
 		config = function()
 			require("plugins.nvim-cmp")
 		end,
+	},
+	{
+		"tpope/vim-dadbod",
+		cmd = "DBUIToggle",
+		dependencies = {
+			"kristijanhusak/vim-dadbod-ui",
+			"kristijanhusak/vim-dadbod-completion",
+		},
+		config = function()
+			require("plugins.dadbod")
+		end,
+	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("plugins.noice")
+		end,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
 	},
 }
 

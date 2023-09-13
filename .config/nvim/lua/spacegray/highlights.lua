@@ -17,7 +17,7 @@ local highlights = {
 	Folded = { fg = C.accent, bg = C.alt_bg },
 	FoldColumn = { fg = C.accent, bg = C.alt_bg },
 	LineNr = { fg = C.fg, bg = C.bg },
-	FloatBoder = { fg = C.gray, bg = C.alt_bg },
+	FloatBorder = { fg = C.cyan, bg = C.alt_bg },
 	Whitespace = { fg = C.bg },
 	VertSplit = { bg = C.light_blue },
 	CursorLine = { bg = C.dark },
@@ -95,6 +95,7 @@ local highlights = {
 	TabLineSel = { fg = C.white, bg = C.alt_bg },
 	TabLineFill = { fg = C.white, bg = C.alt_bg },
 	CocUnusedHighlight = { fg = "orange" },
+	NotifyBackground = { bg = C.alt_bg },
 }
 
 return highlights
