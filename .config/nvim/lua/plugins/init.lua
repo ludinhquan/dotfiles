@@ -1,5 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+local isInstalled = vim.loop.fs_stat(lazypath)
+if not isInstalled then
 	vim.fn.system({
 		"git",
 		"clone",
@@ -86,12 +87,32 @@ local plugins = {
 			require("plugins.alpha-nvim")
 		end,
 	},
+	-- {
+	-- 	"nvim-telescope/telescope.nvim",
+	-- 	cmd = "Telescope",
+	-- 	dependencies = {
+	-- 		"hrsh7th/nvim-cmp",
+	-- 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	-- 	},
+	-- 	config = function()
+	-- 		require("plugins.telescope")
+	-- 	end,
+	-- },
+	-- {
+	-- 	event = "VeryLazy",
+	-- 	"junegunn/fzf.vim",
+	-- 	dependencies = {
+	-- 		"junegunn/fzf",
+	-- 	},
+	-- 	config = function()
+	-- 		require("plugins.fzf")
+	-- 	end,
+	-- },
 	{
-		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
-		dependencies = { "hrsh7th/nvim-cmp" },
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			require("plugins.telescope")
+			require("plugins.fzf")
 		end,
 	},
 	{
@@ -125,10 +146,9 @@ local plugins = {
 	},
 	{
 		"rest-nvim/rest.nvim",
-		ft = "http",
-		event = { "BufReadPre", "BufNewFile" },
+		event = "VeryLazy",
 		config = function()
-			return require("plugins.nvim-rest")
+			require("plugins.nvim-rest")
 		end,
 	},
 	{
@@ -138,18 +158,18 @@ local plugins = {
 			require("plugins.hop")
 		end,
 	},
-	{
-		"pwntester/octo.nvim",
-		cmd = "Octo",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function()
-			require("plugins.octo")
-		end,
-	},
+	-- {
+	-- 	"pwntester/octo.nvim",
+	-- 	cmd = "Octo",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 	},
+	-- 	config = function()
+	-- 		require("plugins.octo")
+	-- 	end,
+	-- },
 	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
@@ -173,6 +193,7 @@ local plugins = {
 	-- },
 	{
 		"williamboman/mason.nvim",
+		event = "VeryLazy",
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 			"jayp0521/mason-null-ls.nvim",
@@ -236,17 +257,26 @@ local plugins = {
 			require("plugins.dadbod")
 		end,
 	},
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("plugins.noice")
-		end,
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-	},
+	-- {
+	-- 	"javiorfo/nvim-ship",
+	-- 	lazy = true,
+	-- 	ft = "ship",
+	-- 	cmd = { "ShipCreate", "ShipCreateEnv" },
+	-- 	dependencies = { "javiorfo/nvim-spinetta", "javiorfo/nvim-popcorn" },
+	-- 	config = function()
+	-- 		require("plugins.nvim-ship")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"folke/noice.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("plugins.noice")
+	-- 	end,
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 	},
+	-- },
 }
 
 require("lazy").setup(plugins, {})

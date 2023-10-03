@@ -76,7 +76,7 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "f", api.live_filter.start, opts("Filter"))
 	vim.keymap.set("n", "g?", api.tree.toggle_help, opts("Help"))
 	vim.keymap.set("n", "y", api.fs.copy.filename, opts("Copy filename"))
-	vim.keymap.set("n", "Y", api.fs.copy.absolute_path, opts("Copy Absolute Path"))
+	vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts("Copy Relative Path"))
 	vim.keymap.set("n", "H", api.tree.toggle_hidden_filter, opts("Toggle Dotfiles"))
 	vim.keymap.set("n", "I", api.tree.toggle_gitignore_filter, opts("Toggle Git Ignore"))
 	vim.keymap.set("n", "J", api.node.navigate.sibling.last, opts("Last Sibling"))
@@ -100,7 +100,7 @@ end
 
 nvimtree.setup({
 	view = {
-		adaptive_size = true,
+		adaptive_size = false,
 		centralize_selection = true,
 		side = "left",
 	},

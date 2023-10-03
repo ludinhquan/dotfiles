@@ -17,11 +17,7 @@ keymap.set("n", "<leader>q", "<cmd> q <CR>")
 keymap.set("n", "<ESC><ESC>", "<cmd> nohlsearch <CR>")
 
 keymap.set("n", "x", '"_x')
-keymap.set("n", "D", "dd")
-
--- increase & decrease number
-keymap.set("n", "<leader>+", "<C-a>")
-keymap.set("n", "<leader>-", "<C-x>")
+keymap.set("n", "D", "dd") -- increase & decrease number
 
 -- window management
 keymap.set("n", "<C-\\>", "<cmd> vsplit <CR>") -- split window
@@ -60,20 +56,25 @@ keymap.set("n", "<leader>tn", "<cmd> tabn <CR>")
 keymap.set("n", "<leader>tp", "<cmd> tabp <CR>")
 keymap.set("n", "te", "<C-w>T") -- full tab size
 
+-- open browser
+keymap.set("n", "go", "<cmd> call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX())) <CR>")
+
 ----------------------
 -- Plugin Keybinds
 ----------------------
 
 -- nvimtree
-keymap.set("n", "<A-s>", "<cmd> NvimTreeFindFile <CR>")
-keymap.set("n", "<leader>e", "<cmd> NvimTreeToggle <CR>")
+keymap.set("n", "<leader>l", "<cmd> NvimTreeToggle <CR>")
+keymap.set("n", "<leader>n", "<cmd> NvimTreeFindFile <CR>")
 
--- telescope
-keymap.set("n", "<leader>p", "<cmd>Telescope find_files hidden=true<cr>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- find http request
-keymap.set("n", "<leader>gbc", "<cmd>Telescope git_bcommits<cr>") -- find http request
+-- dadbodui
+keymap.set("n", "<leader>b", "<cmd> DBUIToggle <cr>")
+
+-- fzf
+keymap.set("n", "<leader>p", "<cmd>lua require('fzf-lua').files()<CR>")
+keymap.set("n", "<leader>s", "<cmd>lua require('fzf-lua').lgrep_curbuf()<CR>")
+keymap.set("n", "<leader>f", "<cmd>lua require('fzf-lua').live_grep_native()<CR>")
+keymap.set("n", "<leader>gl", "<cmd>lua require('fzf-lua').git_bcommits()<CR>")
 
 -- barbar
 keymap.set("n", "<C-j>", "<cmd> BufferPrevious <cr>")
@@ -81,27 +82,22 @@ keymap.set("n", "<C-k>", "<cmd> BufferNext <cr>")
 keymap.set("n", "<C-x>", "<cmd> BufferClose <cr>")
 keymap.set("n", "<leader>x", "<cmd> BufferCloseAllButCurrent <cr>")
 
--- noice
-keymap.set("n", "<C-c>", "<cmd> NoiceDismiss <cr>")
-
 -- resize
-keymap.set("n", "<C-e>", "<cmd> WinResizerStartResize <cr>")
-
--- dadbodui
-keymap.set("n", "<leader>n", "<cmd> DBUIToggle <cr>")
+keymap.set("n", "<leader>e", "<cmd> WinResizerStartResize <cr>")
 
 -- search character
 keymap.set("n", "s", "<cmd> HopChar2 <cr>")
 keymap.set("n", "S", "<cmd> HopWord <cr>")
 
--- rest api
-keymap.set("n", "R", "<Plug> RestNvim <CR>")
-keymap.set("n", "<leader>u", "<Plug> RestNvimPreview <CR>")
-keymap.set("n", "<leader>i", "<Plug> RestNvimLast <CR>")
-
 -- session
 keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
 keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" }) -- save workspace session for current working directory
 
--- open browser
-keymap.set("n", "go", "<cmd> call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX())) <CR>")
+-- -- rest api
+keymap.set("n", "R", "<Plug>RestNvim")
+keymap.set("n", "<leader>u", "<Plug>RestNvimPreview")
+keymap.set("n", "<leader>i", "<Plug>RestNvimLast")
+
+-- Ship
+-- keymap.set("n", "R", "<cmd> Ship <CR>")
+-- keymap.set("n", "X", "<cmd> ShipCloseResponse <CR>")

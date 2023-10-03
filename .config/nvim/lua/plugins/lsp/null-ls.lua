@@ -46,3 +46,42 @@ null_ls.setup({
 		end
 	end,
 })
+
+-- Define a Lua function to format CURL
+function ParseCurl()
+	local start_line = vim.fn.line("'<")
+	local end_line = vim.fn.line("'>")
+	local data, data_line
+
+	for line_num = start_line, end_line do
+		local line = vim.fn.getline(line_num)
+		local header = line:match("-H '([^']+)'")
+		local endpoint = line:match("curl '([^']+)'")
+
+		if header then
+			vim.fn.setline(line_num, header)
+		elseif endpoint then
+			vim.fn.setline(line_num, endpoint)
+		else
+			local match = line:match("'([^']*)'")
+			if match then
+				data = match
+				data_line = line_num
+			else
+				vim.fn.setline(line_num, "")
+			end
+		end
+	end
+	if data then
+		vim.fn.setline(data_line, "")
+		vim.fn.setline(data_line + 1, data)
+	end
+end
+
+vim.cmd([[
+  command! -range FormatJson :<line1>,<line2>!jq .
+  command! -range ParseCurl :lua ParseCurl()
+]])
+
+vim.api.nvim_set_keymap("x", "fm", [[:FormatJson<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap("x", "fp", [[:ParseCurl<CR>]], { noremap = true, silent = true })
