@@ -25,8 +25,8 @@ null_ls.setup({
 				return utils.root_has_file({ ".eslintrc.js", ".eslintrc" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
 			end,
 		}),
-		null_ls.builtins.diagnostics.cspell,
-		null_ls.builtins.code_actions.cspell,
+		-- null_ls.builtins.diagnostics.cspell,
+		-- null_ls.builtins.code_actions.cspell,
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)

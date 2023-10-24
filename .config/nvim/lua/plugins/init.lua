@@ -257,6 +257,19 @@ local plugins = {
 			require("plugins.dadbod")
 		end,
 	},
+	{
+		"salkin-mada/openscad.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"junegunn/fzf.vim",
+			"L3MON4D3/LuaSnip",
+		},
+		config = function()
+			require("openscad")
+			-- load snippets, note requires
+			vim.g.openscad_load_snippets = true
+		end,
+	},
 	-- {
 	-- 	"javiorfo/nvim-ship",
 	-- 	lazy = true,

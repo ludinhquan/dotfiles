@@ -10,9 +10,11 @@ require("nvim-treesitter.configs").setup({
 				-- You can use the capture groups defined in textobjects.scm
 				["a="] = { query = "@assignment.outer", desc = "Select outer part of an assignment region" },
 				["i="] = { query = "@assignment.inner", desc = "Select inner part of an assignment region" },
+				["l="] = { query = "@assignment.lhs", desc = "Select left hand of an assignment region" },
+				["r="] = { query = "@assignment.rhs", desc = "Select right hand of an assignment region" },
 
-				["a:"] = { query = "@parameter.outer", desc = "Select outer part of a parameter/field region" },
-				["i:"] = { query = "@parameter.inner", desc = "Select inner part of a parameter/field region" },
+				["aa"] = { query = "@parameter.outer", desc = "Select outer part of a parameter/field region" },
+				["ia"] = { query = "@parameter.inner", desc = "Select inner part of a parameter/field region" },
 
 				["ai"] = { query = "@conditional.outer", desc = "Select outer part of a conditional region" },
 				["ii"] = { query = "@conditional.inner", desc = "Select inner part of a conditional region" },

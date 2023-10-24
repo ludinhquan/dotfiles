@@ -100,9 +100,14 @@ end
 
 nvimtree.setup({
 	view = {
-		adaptive_size = false,
+		width = 35,
+		adaptive_size = true,
 		centralize_selection = true,
 		side = "left",
+	},
+	update_focused_file = {
+		enable = true,
+		update_root = false,
 	},
 	git = {
 		ignore = false,
@@ -110,6 +115,7 @@ nvimtree.setup({
 	actions = {
 		open_file = {
 			window_picker = { enable = false },
+			resize_window = true,
 		},
 	},
 	renderer = {

@@ -3,23 +3,23 @@ require("lspsaga").setup({
 		max_height = 0.6,
 		keys = {
 			vsplit = { "i", "s" },
-			quit = { "q", "<ESC>" },
+			quit = { "<ESC>" },
 		},
 	},
 	rename = {
 		in_select = false,
 		keys = {
-			quit = { "q", "<ESC>" },
+			quit = { "<ESC>" },
 		},
 	},
 	code_action = {
 		keys = {
-			quit = { "q", "<ESC>" },
+			quit = { "<ESC>" },
 		},
 	},
 	diagnostic = {
 		keys = {
-			quit = { "q", "<ESC>" },
+			quit = { "<ESC>" },
 		},
 	},
 })

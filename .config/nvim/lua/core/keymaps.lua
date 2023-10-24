@@ -59,6 +59,12 @@ keymap.set("n", "te", "<C-w>T") -- full tab size
 -- open browser
 keymap.set("n", "go", "<cmd> call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX())) <CR>")
 
+-- toggle the 'wrap' option
+keymap.set("n", "<leader>;", [[:lua vim.wo.wrap = not vim.wo.wrap<CR>]], { noremap = true, silent = true })
+
+keymap.set("n", "<leader>L", "\"ayiwOconsole.log('<C-R>a:', <C-R>a);<Esc>", { noremap = true, silent = true })
+keymap.set("x", "<leader>L", "\"ayOconsole.log('<C-R>a:', <C-R>a);<Esc>", { noremap = true, silent = true })
+
 ----------------------
 -- Plugin Keybinds
 ----------------------

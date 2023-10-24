@@ -13,4 +13,9 @@ require("Comment").setup({
 		block = "cb",
 	},
 })
-require("Comment.ft").set("ship", "#%s")
+
+local ft = require("Comment.ft")
+
+ft.set("ship", "#%s")
+ft.set("openscad", { "//%s", "/*%s*/" })
+ft.set("*", { "#%s", "#%s" })
