@@ -100,7 +100,9 @@ end
 
 nvimtree.setup({
 	view = {
-		width = 35,
+		width = {
+			max = 40,
+		},
 		adaptive_size = true,
 		centralize_selection = true,
 		side = "left",
@@ -111,12 +113,17 @@ nvimtree.setup({
 	},
 	git = {
 		ignore = false,
+		enable = true,
+		timeout = 500,
 	},
 	actions = {
 		open_file = {
 			window_picker = { enable = false },
 			resize_window = true,
 		},
+	},
+	filesystem_watchers = {
+		enable = false,
 	},
 	renderer = {
 		highlight_opened_files = "icon",

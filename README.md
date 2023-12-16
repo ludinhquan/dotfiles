@@ -23,6 +23,7 @@ stow zsh # Just my zsh config
 ```
 
 Setup and install packages
+
 ```bash
 ./setup.sh
 ```
@@ -32,7 +33,9 @@ Setup and install packages
 An updated list of all the programs I use can be found in the `programs` directory
 
 ## Environment
+
 /etc/environment
+
 ```bash
   GTK_IM_MODULE=ibus
   QT_IM_MODULE=ibus
@@ -40,5 +43,6 @@ An updated list of all the programs I use can be found in the `programs` directo
 ```
 
 ## Reference
+
 - Awesome WM: Mostly from [Redhound](https://github.com/Purhan/dotfiles/) with some personal modifications
 - Neovim: Some ideas from [Lunarvim](https://github.com/LunarVim/LunarVim)

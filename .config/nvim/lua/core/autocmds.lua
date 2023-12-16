@@ -1,23 +1,22 @@
-local autocommands = {}
+-- Turn off paste mode when leaving insert
+vim.api.nvim_create_autocmd("InsertLeave", {
+	pattern = "*",
+	command = "set nopaste",
+})
 
-local defaultCommands = {
-  Reload = { "CursorHold * checktime" }
-}
+-- Disable the concealing in some file formats
+-- The default conceallevel is 3 in LazyVim
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "json", "jsonc", "markdown" },
+	callback = function()
+		vim.opt.conceallevel = 0
+	end,
+})
 
-function autocommands.define_augroups(definitions) -- {{{1
-  for group_name, definition in pairs(definitions) do
-    vim.cmd("augroup " .. group_name)
-    vim.cmd "autocmd!"
-
-    for _, def in pairs(definition) do
-      local command = table.concat(vim.tbl_flatten { "autocmd", def }, " ")
-      vim.cmd(command)
-    end
-
-    vim.cmd "augroup END"
-  end
-end
-
-autocommands.define_augroups(defaultCommands)
-
-return autocommands
+-- Reload
+vim.api.nvim_create_autocmd("CursorHold", {
+	pattern = "*",
+	callback = function()
+		vim.cmd("checktime")
+	end,
+})
