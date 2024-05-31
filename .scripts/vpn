@@ -1,0 +1,89 @@
+#!/bin/bash
+#
+# Function to clean up and exit
+cleanup_and_exit() {
+    echo ""
+    echo "Exiting..."
+    
+    # Kill all running OpenVPN processes
+    if sudo pkill openvpn; then
+        echo "All OpenVPN processes killed."
+    else
+        echo "Failed to kill OpenVPN processes."
+    fi
+    
+    exit 1
+}
+
+# Trap Ctrl+C and call cleanup_and_exit function
+trap cleanup_and_exit SIGINT
+
+vpn_config_path="$HOME/.nordvpn/ovpn_udp"
+credential_path="$HOME/.nordvpn/credential.txt"
+
+# Select OpenVPN config file using fzf
+selected_file=$(rg --files "$vpn_config_path" | fzf --prompt="Select VPN config: ")
+
+# Exit if no file is selected
+if [ -z "$selected_file" ]; then
+    echo "No file selected. Exiting..."
+    exit 1
+fi
+echo "'vpn-config' $selected_file"
+
+# Get the line number of 'auth-user-pass' in the selected file
+line_number=$(grep -n 'auth-user-pass.*' "$selected_file" | cut -d':' -f1)
+
+# Check if the line exists and is not the first line
+if [ -n "$line_number" ] && [ "$line_number" -gt 1 ]; then
+    # Replace the line above 'auth-user-pass' with the path to credential.txt
+    sed -i "${line_number}s|.*|auth-user-pass $credential_path|" "$selected_file"
+    echo "'auth-user-pass' $credential_path"
+else
+    # If 'auth-user-pass' doesn't exist, append it to the end of the file
+    echo "auth-user-pass $credential_path" >> "$selected_file"
+    echo "'auth-user-pass' $credential_path"
+fi
+
+# Connect to OpenVPN using the selected configuration file
+if sudo openvpn --config "$selected_file" &> /tmp/openvpn.log & then
+    # Wait for the connection to be established
+    echo "Waiting for the connection to establish..."
+    # Wait for a few seconds for the log file to be populated
+    while ! pgrep -x "openvpn" > /dev/null; do sleep 1; done
+
+    # Store the process ID of the OpenVPN connection
+    openvpn_pid=$!
+
+    # Continuously monitor the log file for the desired text
+    while :; do
+        if grep -q "Initialization Sequence Completed" /tmp/openvpn.log; then
+            echo "OpenVPN connection established."
+            # Perform additional actions here if needed
+            break  # Exit the loop when successful
+        elif grep -q "AUTH_FAILED" /tmp/openvpn.log; then
+            echo "Authentication failed. Exiting..."
+            # Kill the OpenVPN connection process
+            sudo kill "$openvpn_pid"
+            exit 1
+        fi
+        sleep 1  # Wait for a short interval before checking again
+    done
+
+    # Connection established, proceed with the command to check external IP
+    echo "Checking external IP..."
+    curl ipinfo.io
+    echo ""
+else
+    echo "Failed to establish OpenVPN connection using $selected_file."
+fi
+
+# Wait for user input to stop the OpenVPN connection
+read -p "Press Enter to stop the OpenVPN connection..."
+
+# Kill all running OpenVPN processes
+if sudo pkill openvpn; then
+    echo "OpenVPN connection stopped."
+else
+    echo "Failed to stop OpenVPN connection."
+fi

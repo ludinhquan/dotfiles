@@ -92,8 +92,7 @@ keymap.set("n", "<leader>x", "<cmd> BufferCloseAllButCurrent <cr>")
 keymap.set("n", "<leader>e", "<cmd> WinResizerStartResize <cr>")
 
 -- search character
-keymap.set("n", "s", "<cmd> HopChar2 <cr>")
-keymap.set("n", "S", "<cmd> HopWord <cr>")
+keymap.set("n", "m", "<cmd> HopChar2 <cr>")
 
 -- session
 keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory

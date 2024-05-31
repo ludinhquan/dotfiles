@@ -12,9 +12,6 @@ xset s noblank
 # Speedy keys
 xset r rate 210 40
 
-# remap caps to escape
-setxkbmap -option caps:escape
-
 # Hide mouse when typing
 xbanish &
 

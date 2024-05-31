@@ -1,0 +1,126 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[[colors.indexed_colors]]
+color = "0xf99157"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xab7967"
+index = 17
+
+[[colors.indexed_colors]]
+color = "0x343d46"
+index = 18
+
+[[colors.indexed_colors]]
+color = "0x4f5b66"
+index = 19
+
+[[colors.indexed_colors]]
+color = "0xa7adba"
+index = 20
+
+[[colors.indexed_colors]]
+color = "0xcdd3de"
+index = 21
+
+[colors.bright]
+black = "0x65737e"
+blue = "0x6699cc"
+cyan = "0x5fb3b3"
+green = "0x99c794"
+magenta = "0xc594c5"
+red = "0xec5f67"
+white = "0xd8dee9"
+yellow = "0xfac863"
+
+[colors.cursor]
+cursor = "0xc0c5ce"
+text = "0x1b2b34"
+
+[colors.normal]
+black = "0x1b2b34"
+blue = "0x6699cc"
+cyan = "0x5fb3b3"
+green = "0x99c794"
+magenta = "0xc594c5"
+red = "0xec5f67"
+white = "0xc0c5ce"
+yellow = "0xfac863"
+
+[colors.primary]
+background = "0x1b2b34"
+foreground = "0xc0c5ce"
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+[font]
+size = 10
+
+[font.bold]
+family = "Hack Nerd Font"
+style = "Bold"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "Hack Nerd Font"
+style = "Medium,Regular"
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+chars = "\u001Bs"
+key = "S"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bh"
+key = "H"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bj"
+key = "J"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bk"
+key = "K"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bl"
+key = "L"
+mods = "Alt"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[shell]
+args = ["-l", "-c", "eval $(which tmux)"]
+program = "/bin/zsh"
+
+[window]
+decorations = "none"
+opacity = 0.95
+
+[window.dimensions]
+columns = 220
+lines = 60
+
+[window.padding]
+x = 8
+y = 8

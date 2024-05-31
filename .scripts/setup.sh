@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOTFILE=$HOME/dotfiles
-SCRIPT=$DOTFILE/scripts
+SCRIPT=$DOTFILE/.scripts
 
 # Install package
 sudo pacman -Syy

@@ -33,9 +33,9 @@ mason_lspconfig.setup({
 mason_null_ls.setup({
 	-- list of formatters & linters for mason to install
 	ensure_installed = {
-		"stylua", -- lua formatter
-		"eslint_d", -- ts/js linter
-		"prettierd", -- ts/js formatter
+		-- "stylua", -- lua formatter
+		-- "eslint_d", -- ts/js linter
+		-- "prettierd", -- ts/js formatter
 	},
 	-- auto-install configured servers (with lspconfig)
 	automatic_installation = true,

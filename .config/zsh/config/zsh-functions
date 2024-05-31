@@ -1,5 +1,5 @@
 function horizontal_split(){ 
-  tmux split-window -h -c "#{pane_current_path}" -p 25
+  tmux split-window -h -c "#{pane_current_path}" -l 50
   tmux select-pane -t 0
 }
 
