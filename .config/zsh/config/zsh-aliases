@@ -6,7 +6,8 @@ alias vidotfiles="cd $HOME/dotfiles && nvim"
 # execute script
 alias v="horizontal_split"
 alias gconfig="cp -i ~/.scripts/git-config . && . ./git-config"
-alias gg=". ~/.scripts/go-dir"
+alias gg="$HOME/.scripts/go-dir"
+alias vpn="$HOME/.scripts/vpn"
 
 # confirm before overwriting something
 alias cp="cp -i"

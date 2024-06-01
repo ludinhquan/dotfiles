@@ -6,10 +6,12 @@ cleanup_and_exit() {
     echo "Exiting..."
     
     # Kill all running OpenVPN processes
-    if sudo pkill openvpn; then
-        echo "All OpenVPN processes killed."
-    else
-        echo "Failed to kill OpenVPN processes."
+    if pgrep openvpn >/dev/null; then
+        if sudo pkill openvpn; then
+            echo "All OpenVPN processes killed."
+        else
+            echo "Failed to kill OpenVPN processes."
+        fi
     fi
     
     exit 1
@@ -22,14 +24,15 @@ vpn_config_path="$HOME/.nordvpn/ovpn_udp"
 credential_path="$HOME/.nordvpn/credential.txt"
 
 # Select OpenVPN config file using fzf
-selected_file=$(rg --files "$vpn_config_path" | fzf --prompt="Select VPN config: ")
+selected_filename=$(rg --files "$vpn_config_path" | xargs -n1 basename | fzf --prompt="Select VPN config: ")
+selected_file="$vpn_config_path/$selected_filename"
 
 # Exit if no file is selected
-if [ -z "$selected_file" ]; then
+if [ -z "$selected_filename" ]; then
     echo "No file selected. Exiting..."
     exit 1
 fi
-echo "'vpn-config' $selected_file"
+echo "'vpn-config' $selected_filename"
 
 # Get the line number of 'auth-user-pass' in the selected file
 line_number=$(grep -n 'auth-user-pass.*' "$selected_file" | cut -d':' -f1)
@@ -38,11 +41,11 @@ line_number=$(grep -n 'auth-user-pass.*' "$selected_file" | cut -d':' -f1)
 if [ -n "$line_number" ] && [ "$line_number" -gt 1 ]; then
     # Replace the line above 'auth-user-pass' with the path to credential.txt
     sed -i "${line_number}s|.*|auth-user-pass $credential_path|" "$selected_file"
-    echo "'auth-user-pass' $credential_path"
+    echo "'auth-user-pass' changed!"
 else
     # If 'auth-user-pass' doesn't exist, append it to the end of the file
     echo "auth-user-pass $credential_path" >> "$selected_file"
-    echo "'auth-user-pass' $credential_path"
+    echo "'auth-user-pass' changed!"
 fi
 
 # Connect to OpenVPN using the selected configuration file
@@ -79,11 +82,14 @@ else
 fi
 
 # Wait for user input to stop the OpenVPN connection
-read -p "Press Enter to stop the OpenVPN connection..."
+read -rp "Press Enter to stop the OpenVPN connection..."
 
 # Kill all running OpenVPN processes
-if sudo pkill openvpn; then
-    echo "OpenVPN connection stopped."
-else
-    echo "Failed to stop OpenVPN connection."
+# Kill all running OpenVPN processes
+if pgrep openvpn >/dev/null; then
+    if sudo pkill openvpn; then
+        echo "All OpenVPN processes killed."
+    else
+        echo "Failed to kill OpenVPN processes."
+    fi
 fi
