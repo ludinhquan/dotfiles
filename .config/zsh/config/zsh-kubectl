@@ -12,6 +12,12 @@ function klog(){
   xargs -o -I % kubectl logs -f %
 }
 
+function kdesc(){
+  kubectl get pods --no-headers $1 | \
+  fzf | awk '{print $1}' | \
+  xargs -o -I % kubectl describe pod %
+}
+
 function kexec(){
   local kubeconfig
   kubepod=$(kubectl get po --no-headers $1 | fzf | awk '{print $1}')
