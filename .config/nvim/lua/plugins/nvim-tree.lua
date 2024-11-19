@@ -7,23 +7,26 @@ if not status_ok then
 end
 
 local lib = require("nvim-tree.lib")
+local core = require("nvim-tree.core")
+-- local explorer = require("nvim-tree.explorer")
 local api = require("nvim-tree.api")
 
 local function node_collapse()
-	local node = lib.get_node_at_cursor()
+	local explorer = core.get_explorer()
+	local node = explorer:get_node_at_cursor()
 	if not node or node.name == ".." then
 		return
 	end
 
 	if node.open then
-		lib.expand_or_collapse(node)
+		node:expand_or_collapse(false)
 		return
 	end
 	api.node.navigate.parent_close()
 end
 
 local function node_expand()
-	local node = lib.get_node_at_cursor()
+	local node = explorer.get_node_at_cursor()
 	if not node or node.name == ".." then
 		return
 	end
@@ -94,7 +97,7 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "U", api.tree.toggle_custom_filter, opts("Toggle Hidden"))
 	vim.keymap.set("n", "W", api.tree.collapse_all, opts("Collapse"))
 	vim.keymap.set("n", "x", api.fs.cut, opts("Cut"))
-	vim.keymap.set("n", "l", node_expand, opts("Node Expand"))
+	vim.keymap.set("n", "l", api.node.open.preview, opts("Node Expand"))
 	vim.keymap.set("n", "h", node_collapse, opts("Node Collapse"))
 end
 
