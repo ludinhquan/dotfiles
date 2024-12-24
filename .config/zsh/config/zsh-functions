@@ -3,15 +3,43 @@ function horizontal_split(){
   tmux select-pane -t 0
 }
 
-# set node version for current shell
-function set_node_version() {
-  if [[ -f .nvmrc && -r .nvmrc ]] || [[ -f .node-version && -r .node-version ]]; then
-    fnm use
-  fi
-}
-set_node_version
 
 function kport(){
   kill -9 $(lsof -t -i:$1)
 }
 
+
+# Function to set the Node.js version for the current shell
+# Function to set the Node.js version for the current shell
+set_node_version() {
+  local current_dir="$PWD"
+  local config_file=""
+  local node_version=""
+
+  # Search for .nvmrc or .node-version in the current and parent directories
+  while [[ "$current_dir" != "/" ]]; do
+    if [[ -f "$current_dir/.nvmrc" && -r "$current_dir/.nvmrc" ]]; then
+      config_file="$current_dir/.nvmrc"
+      break
+    elif [[ -f "$current_dir/.node-version" && -r "$current_dir/.node-version" ]]; then
+      config_file="$current_dir/.node-version"
+      break
+    fi
+    current_dir="$(dirname "$current_dir")" # Move up one directory
+  done
+
+  if [[ -n "$config_file" ]]; then
+    # Read the version from the file
+    node_version=$(cat "$config_file" | tr -d ' \t\n\r')
+    if [[ -z "$node_version" ]]; then
+      echo "Error: The file $config_file does not specify a Node.js version."
+      return 1
+    fi
+    echo "Using Node.js version from: $config_file"
+    fnm use "$node_version" || {
+      echo "Error: Failed to use Node.js version $node_version with fnm."
+      return 1
+    }
+  fi
+}
+set_node_version
