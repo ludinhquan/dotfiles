@@ -146,10 +146,8 @@ local plugins = {
 	},
 	{
 		"rest-nvim/rest.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("plugins.nvim-rest")
-		end,
+		-- ft = "http",
+		-- event = { "BufReadPre", "BufNewFile" },
 	},
 	{
 		"phaazon/hop.nvim",

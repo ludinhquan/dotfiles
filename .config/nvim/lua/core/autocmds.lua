@@ -20,3 +20,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
 		vim.cmd("checktime")
 	end,
 })
+
+vim.api.nvim_command("autocmd FileType html setlocal formatprg=tidy")
+
+vim.api.nvim_command("autocmd FileType json setlocal formatprg=jq")

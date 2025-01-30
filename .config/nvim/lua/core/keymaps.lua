@@ -99,9 +99,9 @@ keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore sessi
 keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" }) -- save workspace session for current working directory
 
 -- -- rest api
-keymap.set("n", "R", "<Plug>RestNvim")
-keymap.set("n", "<leader>u", "<Plug>RestNvimPreview")
-keymap.set("n", "<leader>i", "<Plug>RestNvimLast")
+keymap.set("n", "R", "<cmd> Rest run <CR>")
+keymap.set("n", "<leader>u", "<cmd> Rest open <cr>")
+keymap.set("n", "<leader>i", "<cmd> Rest last <cr>")
 
 -- Ship
 -- keymap.set("n", "R", "<cmd> Ship <CR>")
