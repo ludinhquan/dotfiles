@@ -74,6 +74,12 @@ keymap.set(
 )
 keymap.set(
 	"n",
+	"<leader>o",
+	"<cmd>call VSCodeNotify('workbench.action.toggleAuxiliaryBar')<CR>",
+	{ noremap = true, silent = true }
+)
+keymap.set(
+	"n",
 	"<leader>f",
 	"<cmd>call VSCodeNotify('workbench.action.findInFiles')<CR>",
 	{ noremap = true, silent = true }
