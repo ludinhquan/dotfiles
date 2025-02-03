@@ -14,4 +14,4 @@ export SAVEHIST=1000000                   # Maximum events in history file
 # fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/bin:$HOME/.cargo/bin
