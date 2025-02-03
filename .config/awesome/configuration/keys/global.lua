@@ -44,6 +44,9 @@ local globalKeys = awful.util.table.join(
 	awful.key({ modkey }, "s", function()
 		_G.awesome.spawn(apps.default.rofi)
 	end, { description = "show main menu", group = "awesome" }),
+	awful.key({ modkey }, "o", function()
+		_G.awesome.spawn(apps.default.open_window_command)
+	end, { description = "show desktop", group = "awesome" }),
 	-- Tag browsing
 	awful.key({ modkey }, "Tab", awful.tag.viewnext, { description = "view previous", group = "tag" }),
 	awful.key({ modkey, "Shift" }, "Tab", awful.tag.viewprev, { description = "view previous", group = "tag" }),
