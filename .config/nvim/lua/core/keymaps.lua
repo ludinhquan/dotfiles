@@ -103,6 +103,5 @@ keymap.set("n", "R", "<cmd> Rest run <CR>")
 keymap.set("n", "<leader>u", "<cmd> Rest open <cr>")
 keymap.set("n", "<leader>i", "<cmd> Rest last <cr>")
 
--- Ship
--- keymap.set("n", "R", "<cmd> Ship <CR>")
--- keymap.set("n", "X", "<cmd> ShipCloseResponse <CR>")
+-- Avante
+keymap.set("n", "<leader>oo", "<cmd> AvanteToggle <CR>")

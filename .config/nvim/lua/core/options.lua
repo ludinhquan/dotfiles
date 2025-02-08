@@ -55,5 +55,5 @@ for k, v in pairs(default_options) do
 end
 local cmd = vim.cmd
 
-cmd("set fillchars+=vert:\\ ,eob:\\ ")
+cmd("set fillchars+=vert:│,eob:\\ ")
 cmd("set whichwrap+=<,>,[,],h,l")

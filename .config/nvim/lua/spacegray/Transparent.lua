@@ -9,4 +9,5 @@ return {
 	MsgArea = { fg = NONE, bg = NONE },
 	TelescopeBorder = { fg = NONE, bg = NONE },
 	NvimTreeNormal = { fg = NONE, bg = NONE },
+	WinSeparator = { bg = NONE },
 }
