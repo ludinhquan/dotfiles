@@ -308,7 +308,7 @@ local plugins = {
 				deepseek = {
 					__inherited_from = "openai",
 					endpoint = "https://api.deepseek.com",
-					model = "deepseek-chat",
+					model = "deepseek-coder",
 				},
 			},
 		},

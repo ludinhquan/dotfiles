@@ -56,6 +56,11 @@ keymap.set("n", "<leader>tn", "<cmd> tabn <CR>")
 keymap.set("n", "<leader>tp", "<cmd> tabp <CR>")
 keymap.set("n", "te", "<C-w>T") -- full tab size
 
+keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { silent = true })
+keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { silent = true })
+keymap.set("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { silent = true })
+keymap.set("n", "<C-Left>", "<cmd>vertical resize +2<CR>", { silent = true })
+
 -- open browser
 keymap.set("n", "go", "<cmd> call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX())) <CR>")
 
@@ -105,3 +110,6 @@ keymap.set("n", "<leader>i", "<cmd> Rest last <cr>")
 
 -- Avante
 keymap.set("n", "<leader>oo", "<cmd> AvanteToggle <CR>")
+
+-- Winresizer
+keymap.set("n", ";", "<cmd> WinResizerStartResize <CR>")
