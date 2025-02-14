@@ -109,7 +109,9 @@ keymap.set("n", "<leader>u", "<cmd> Rest open <cr>")
 keymap.set("n", "<leader>i", "<cmd> Rest last <cr>")
 
 -- Avante
-keymap.set("n", "<leader>oo", "<cmd> AvanteToggle <CR>")
+keymap.set("n", "<leader>od", "<cmd> AvanteSwitchProvider deepseek <CR>")
+keymap.set("n", "<leader>oc", "<cmd> AvanteSwitchProvider claude <CR>")
+keymap.set("n", "<leader>oo", "<cmd> AvanteSwitchProvider openai <CR>")
 
 -- Winresizer
-keymap.set("n", ";", "<cmd> WinResizerStartResize <CR>")
+keymap.set("n", ";;", "<cmd> WinResizerStartResize <CR>")

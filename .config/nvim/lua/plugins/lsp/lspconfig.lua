@@ -30,10 +30,10 @@ local on_attach = function(_, bufnr)
 	keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
 
 	opts.desc = "Show diagnostics"
-	keymap.set("n", "<leader>dc", "<cmd>Lspsaga show_cursor_diagnostics <CR>", opts) -- show  diagnostics for file
-	keymap.set("n", "<leader>dl", "<cmd>Lspsaga show_line_diagnostics <CR>", opts) -- show  diagnostics for file
-	keymap.set("n", "<leader>db", "<cmd>Lspsaga show_buf_diagnostics <CR>", opts) -- show  diagnostics for file
-	keymap.set("n", "<leader>dw", "<cmd>Lspsaga Lspsaga show_workspace_diagnostics <CR>", opts) -- show  diagnostics for file
+	keymap.set("n", "<leader>dc", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic
+	keymap.set("n", "<leader>dl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show line diagnostics
+	keymap.set("n", "<leader>db", "<cmd>Lspsaga show_buffer_diagnostics<CR>", opts) -- show buffer diagnostics
+	keymap.set("n", "<leader>dw", "<cmd>Lspsaga show_workspace_diagnostics<CR>", opts) -- show workspace diagnostics
 
 	opts.desc = "Outline"
 	keymap.set("n", "<leader>co", "<cmd>Lspsaga outline<CR>", opts) -- jump to previous diagnostic in buffer

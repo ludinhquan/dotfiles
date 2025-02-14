@@ -303,12 +303,16 @@ local plugins = {
 		lazy = false,
 		version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
 		opts = {
-			provider = "deepseek",
+			provider = "openai",
+			openai = {
+				model = "gpt-4o-mini", -- your desired model (or use gpt-4o, etc.)
+			},
 			vendors = {
 				deepseek = {
 					__inherited_from = "openai",
 					endpoint = "https://api.deepseek.com",
 					model = "deepseek-coder",
+					api_key_name = "DEEPSEEK_API_KEY", -- Get API key from environment variable
 				},
 			},
 		},
