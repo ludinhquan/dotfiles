@@ -302,24 +302,12 @@ local plugins = {
 		event = "VeryLazy",
 		lazy = false,
 		version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
-		opts = {
-			provider = "openai",
-			openai = {
-				model = "gpt-4o-mini", -- your desired model (or use gpt-4o, etc.)
-			},
-			vendors = {
-				deepseek = {
-					__inherited_from = "openai",
-					endpoint = "https://api.deepseek.com",
-					model = "deepseek-coder",
-					api_key_name = "DEEPSEEK_API_KEY", -- Get API key from environment variable
-				},
-			},
-		},
+		opts = require("avante"),
 		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 		build = "make",
 		-- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
 		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
 			"stevearc/dressing.nvim",
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",

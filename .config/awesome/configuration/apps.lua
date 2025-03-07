@@ -16,6 +16,7 @@ return {
 		change_output_device = ". ~/.scripts/change-output-device",
 
 		browser = "brave",
+		torbrowser = "tor-browser",
 		terminal = "alacritty -e tmux",
 		editor = "nvim",
 		files = "nautilus",

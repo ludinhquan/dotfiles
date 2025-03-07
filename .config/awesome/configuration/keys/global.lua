@@ -82,9 +82,9 @@ local globalKeys = awful.util.table.join(
 		end
 	end, { description = "Switch to next window", group = "client" }),
 	--Programms
-	awful.key({ modkey }, "\\", function()
-		awful.util.spawn_with_shell(apps.default.lock)
-	end, { description = "Lock the screen", group = "awesome" }),
+	-- awful.key({ modkey }, "\\", function()
+	-- 	awful.util.spawn_with_shell(apps.default.lock)
+	-- end, { description = "Lock the screen", group = "awesome" }),
 	awful.key({ modkey, "Shift" }, "s", function()
 		awful.util.spawn_with_shell(apps.default.flameshot_area)
 	end, { description = "Mark an area and screenshot", group = "screenshots (clipboard)" }),
@@ -94,6 +94,9 @@ local globalKeys = awful.util.table.join(
 	awful.key({ modkey }, "b", function()
 		awful.util.spawn(apps.default.browser)
 	end, { description = "open a browser", group = "launcher" }),
+	awful.key({ modkey }, "\\", function()
+		awful.util.spawn(apps.default.torbrowser)
+	end, { description = "open tor browser", group = "launcher" }),
 
 	-- Standard program
 	-- awful.key({modkey}, 't',
