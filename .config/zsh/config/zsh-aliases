@@ -19,4 +19,5 @@ alias e='xdg-open .'
 
 # kubectl
 alias k="kubectl"
+alias lz="lazygit"
 alias kcontext="kubectl config get-contexts"
