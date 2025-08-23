@@ -15,33 +15,21 @@ brew=(
     fnm
     fzf
     gh
-    go
     htop
-    ilmbase
-    imagemagick
     jq
     lazygit
     neovim
     ripgrep
-    tmux
-    yabai
     ranger
-    mongosh
+    raycast
+    yqrashawn/goku/goku
 )
+
 cask=(
     alacritty
-    brave-browser
+    arc
     firefox
-    font-hack-nerd-font
-    keycastr
-    lastpass
-    slack
-    spotify
-    tor-browser
-    virtualbox
-    vlc
 ) #GUI apps that install with cask
-
 
 brew update
 brew upgrade
@@ -50,29 +38,17 @@ brew install ${brew[@]} #Homebrew App Installer
 brew install ${cask[@]} --cask #Casks Installer
 
 ln -sfn ~/dotfiles/.config ~/.config
-ln -sfn ~/dotfiles/.scripts ~/.scripts
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.zshenv ~/.zshenv
 
-#<----------------Changing MacOS Specific Preferences-------------------->
-defaults write com.apple.dock autohide-time-modifier -int 0 #Sets Dock Autohide Time to O Seconds
-defaults write com.apple.dock autohide -bool true #Turns Dock Autohide ON
-defaults write com.apple.dock magnification -bool  NO #Turns of Dock Magnification
-defaults write com.apple.dock orientation -string  left #Moving the Dock to the left Side of the Screen
-defaults write com.apple.dock minimize-to-application -bool YES #Minimizing Applications to Their Respective Application Icon
-defaults write com.apple.dock showhidden -string  YES #Shows Hidden Applications in Dock
-defaults write com.apple.dock expose-animation-duration -string 0 #Setting Expose Animation to 0 Seconds
-defaults write com.apple.dock tilesize -int 36 #Setting Icon Size to 36 Pixels
-defaults write com.apple.dock mineffect -string "genie" #Changes Minimize to Dock Animation to "Genie" (Seems to be the fastest by my eye)
-defaults write com.apple.dock launchanim -bool false #Setting Launch Animation to False
-
-defaults write -g InitialKeyRepeat -int 12
-defaults write -g KeyRepeat -int 2
+defaults write -g InitialKeyRepeat -int 10
+defaults write -g KeyRepeat -int 1
+defaults write -g ApplePressAndHoldEnabled 0
 
 killall dock
+
+ssh-keygen -t  ecdsa -b 521
 
 echo 'Installation Complete'
 echo 'Now you can make an SSH key:'
 echo "Press CONTROL+C, if you don't want to"
 
-ssh-keygen -t  ecdsa -b 521

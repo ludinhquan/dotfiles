@@ -1,0 +1,37 @@
+ {
+  :simlayers {
+    :a-mode {:key :a}
+    :d-mode {:key :d}
+    :s-mode {:key :s}
+    :v-mode {:key :v}}
+  :main [
+    {:des "left_command alone -> ⌘ + tab to last app"
+         :rules [[:left_command :left_command nil {:alone :!Ctab}]]},
+    {:des "A key"
+       :rules [:a-mode
+              [:h "open -g raycast://extensions/raycast/window-management/left-half" ]
+              [:j "open -g raycast://extensions/raycast/window-management/bottom-half" ]
+              [:k "open -g raycast://extensions/raycast/window-management/top-half" ]
+              [:l "open -g raycast://extensions/raycast/window-management/right-half" ]
+              [:o "open -g raycast://extensions/raycast/window-management/almost-maximize" ]
+              [:p "open -g raycast://extensions/raycast/window-management/maximize" ]
+              ]},
+    {:des "S key"
+       :rules [:s-mode
+              [:h :left_arrow]
+              [:j :down_arrow]
+              [:k :up_arrow]
+              [:l :right_arrow]
+              [:!Sh :delete_or_backspace]
+              [:!Sl :delete_forward]
+              [:i :home]
+              [:o :end]
+              ]},
+      {:des "V key"
+       :rules [:v-mode
+              [:h :!Sleft_arrow]
+              [:j :!Sdown_arrow]
+              [:k :!Sup_arrow]
+              [:l :!Sright_arrow]
+              ]},
+]}

@@ -13,3 +13,9 @@ source $ZDOTDIR/config/zsh-kubectl
 zsh_add_file $ZDOTDIR/completions/docker.zsh
 zsh_add_file $ZDOTDIR/completions/kubectl.zsh
 zsh_add_file $ZDOTDIR/.zshenv.local
+
+# fnm
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "`fnm env`"
+fi

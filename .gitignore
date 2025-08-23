@@ -12,5 +12,5 @@
 !.config/ranger
 !.config/rofi
 !.config/nvim
-# !.config/karabiner
+!.config/karabiner.edn
 .config/nvim/db_ui
