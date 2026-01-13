@@ -5,8 +5,8 @@
     :s-mode {:key :s}
     :v-mode {:key :v}}
   :main [
-    {:des "left_command alone -> ⌘ + tab to last app"
-         :rules [[:left_command :left_command nil {:alone :!Ctab}]]},
+    ;; {:des "left_command alone -> ⌘ + tab to last app"
+    ;;      :rules [[:left_command :left_command nil {:alone :!Ctab}]]},
     {:des "A key"
        :rules [:a-mode
               [:h "open -g raycast://extensions/raycast/window-management/left-half" ]
