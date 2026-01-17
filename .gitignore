@@ -12,5 +12,11 @@
 !.config/ranger
 !.config/rofi
 !.config/nvim
+!.config/hammerspoon
+!.config/opencode
+!.config/ghostty
+!.config/wezterm
+!.config/starship
 !.config/karabiner.edn
-.config/nvim/db_ui
+
+.config/tmux/plugins

@@ -1,0 +1,6 @@
+font-size = 16
+background-blur-radius = 20
+background-opacity = 0.85
+mouse-hide-while-typing = true
+window-decoration = false
+macos-option-as-alt = true
