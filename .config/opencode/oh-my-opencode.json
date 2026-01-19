@@ -1,0 +1,38 @@
+{
+  "$schema": "https://raw.githubusercontent.com/tarquinen/oh-my-opencode/main/schema.json",
+  "google_auth": false,
+  "agents": {
+    "frontend-ui-ux-engineer": {
+      "model": "google/antigravity-gemini-3-pro",
+      "variant": "high"
+    },
+    "backend-api-engineer": {
+      "model": "google/antigravity-claude-sonnet-4-5-thinking",
+      "variant": "medium"
+    },
+    "document-writer": {
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "medium"
+    },
+    "multimodal-looker": {
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "low"
+    },
+    "code-reviewer": {
+      "model": "google/antigravity-claude-sonnet-4-5-thinking",
+      "variant": "max"
+    },
+    "test-engineer": {
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "high"
+    },
+    "devops-engineer": {
+      "model": "google/antigravity-gemini-3-pro",
+      "variant": "low"
+    },
+    "database-architect": {
+      "model": "google/antigravity-claude-sonnet-4-5-thinking",
+      "variant": "medium"
+    }
+  }
+}
