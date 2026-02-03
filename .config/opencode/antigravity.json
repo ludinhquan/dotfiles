@@ -3,7 +3,7 @@
   "quiet_mode": false,
   "debug": false,
   "auto_update": true,
-  "keep_thinking": true,
+  "keep_thinking": false,
   "signature_cache": {
     "enabled": true,
     "memory_ttl_seconds": 3600,
@@ -22,6 +22,7 @@
   "max_rate_limit_wait_seconds": 300,
   "quota_fallback": true,
   "switch_on_first_rate_limit": true,
-  "account_selection_strategy": "sticky",
+  "account_selection_strategy": "hybrid",
+  "scheduling_mode": "balance",
   "pid_offset_enabled": true
 }

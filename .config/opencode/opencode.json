@@ -2,13 +2,15 @@
   "$schema": "https://opencode.ai/config.json",
   "theme": "system",
   "plugin": [
-    "opencode-antigravity-auth@beta",
-    "oh-my-opencode@latest"
+    "oh-my-opencode@latest",
+    "opencode-antigravity-auth@latest",
+    "opencode-openai-codex-auth@latest",
+    "@franlol/opencode-md-table-formatter"
   ],
   "tui": {
     "scroll_speed": 0.6,
     "scroll_acceleration": {
-      "enabled": false
+      "enabled": true
     }
   },
   "keybinds": {
@@ -20,37 +22,13 @@
       "models": {
         "antigravity-claude-sonnet-4-5": {
           "name": "Claude Sonnet 4.5",
-          "limit": {
-            "context": 200000,
-            "output": 64000
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image",
-              "pdf"
-            ],
-            "output": [
-              "text"
-            ]
-          }
+          "limit": { "context": 200000, "output": 64000 },
+          "modalities": { "input": [ "text", "image", "pdf" ], "output": [ "text" ] }
         },
         "antigravity-claude-sonnet-4-5-thinking": {
           "name": "Claude Sonnet 4.5 Thinking",
-          "limit": {
-            "context": 200000,
-            "output": 64000
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image",
-              "pdf"
-            ],
-            "output": [
-              "text"
-            ]
-          },
+          "limit": { "context": 200000, "output": 64000 },
+          "modalities": { "input": [ "text", "image", "pdf" ], "output": [ "text" ] },
           "variants": {
             "low": {
               "thinkingConfig": {
@@ -71,20 +49,8 @@
         },
         "antigravity-claude-opus-4-5-thinking": {
           "name": "Claude Opus 4.5 Thinking",
-          "limit": {
-            "context": 200000,
-            "output": 64000
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image",
-              "pdf"
-            ],
-            "output": [
-              "text"
-            ]
-          },
+          "limit": { "context": 200000, "output": 64000 },
+          "modalities": { "input": [ "text", "image", "pdf" ], "output": [ "text" ] },
           "variants": {
             "low": {
               "thinkingConfig": {
@@ -105,45 +71,14 @@
         },
         "antigravity-gemini-3-pro": {
           "name": "Gemini 3 Pro (Antigravity)",
-          "limit": {
-            "context": 1048576,
-            "output": 65535
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image",
-              "pdf"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "variants": {
-            "low": {
-              "thinkingLevel": "low"
-            },
-            "high": {
-              "thinkingLevel": "high"
-            }
-          }
+          "limit": { "context": 1048576, "output": 65535 },
+          "modalities": { "input": [ "text", "image", "pdf" ], "output": [ "text" ] },
+          "variants": { "low": { "thinkingLevel": "low" }, "high": { "thinkingLevel": "high" } }
         },
         "antigravity-gemini-3-flash": {
           "name": "Gemini 3 Flash (Antigravity)",
-          "limit": {
-            "context": 1048576,
-            "output": 65536
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image",
-              "pdf"
-            ],
-            "output": [
-              "text"
-            ]
-          },
+          "limit": { "context": 1048576, "output": 65536 },
+          "modalities": { "input": [ "text", "image", "pdf" ], "output": [ "text" ] },
           "variants": {
             "minimal": {
               "thinkingLevel": "minimal"
@@ -159,40 +94,6 @@
             }
           }
         },
-        "gemini-2.5-flash": {
-          "name": "Gemini 2.5 Flash (Gemini CLI)",
-          "limit": {
-            "context": 1048576,
-            "output": 65536
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image",
-              "pdf"
-            ],
-            "output": [
-              "text"
-            ]
-          }
-        },
-        "gemini-2.5-pro": {
-          "name": "Gemini 2.5 Pro (Gemini CLI)",
-          "limit": {
-            "context": 1048576,
-            "output": 65536
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image",
-              "pdf"
-            ],
-            "output": [
-              "text"
-            ]
-          }
-        }
       }
     }
   },
