@@ -1,21 +1,10 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "system",
   "plugin": [
     "oh-my-opencode@latest",
     "opencode-openai-codex-auth@latest",
     "@franlol/opencode-md-table-formatter"
   ],
-  "tui": {
-    "scroll_speed": 0.6,
-    "scroll_acceleration": {
-      "enabled": true
-    }
-  },
-  "keybinds": {
-    "input_submit": "ctrl+return",
-    "input_newline": "shift+return,ctrl+return,alt+return,ctrl+j"
-  },
   "provider": {
     "antigravity-manager": {
       "npm": "@ai-sdk/anthropic",
@@ -26,7 +15,7 @@
       },
       "models": {
         "claude-sonnet-4-6": {
-          "name": "Claude Sonnet 4.6",
+          "name": "Sonnet 4.6",
           "limit": {
             "context": 200000,
             "output": 64000
@@ -70,7 +59,7 @@
           }
         },
         "claude-opus-4-6-thinking": {
-          "name": "Claude Opus 4.6 Thinking",
+          "name": "Opus 4.6",
           "limit": {
             "context": 200000,
             "output": 64000
@@ -93,7 +82,8 @@
               },
               "thinking": {
                 "type": "enabled",
-                "budget_tokens": 8192
+                "budget_tokens": 8192,
+                "budgetTokens": 8192
               }
             },
             "medium": {
@@ -102,7 +92,8 @@
               },
               "thinking": {
                 "type": "enabled",
-                "budget_tokens": 16384
+                "budget_tokens": 16384,
+                "budgetTokens": 16384
               }
             },
             "high": {
@@ -111,7 +102,8 @@
               },
               "thinking": {
                 "type": "enabled",
-                "budget_tokens": 24576
+                "budget_tokens": 24576,
+                "budgetTokens": 24576
               }
             },
             "max": {
@@ -120,7 +112,8 @@
               },
               "thinking": {
                 "type": "enabled",
-                "budget_tokens": 32768
+                "budget_tokens": 32768,
+                "budgetTokens": 32768
               }
             }
           }
