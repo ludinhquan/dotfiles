@@ -8,7 +8,7 @@
   "provider": {
     "antigravity-manager": {
       "npm": "@ai-sdk/anthropic",
-      "name": "Antigravity Manager",
+      "name": "am",
       "options": {
         "baseURL": "http://127.0.0.1:8045/v1",
         "apiKey": "sk-4fa13737ac2b4986b6756618fc0dc238"
