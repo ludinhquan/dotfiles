@@ -1,4 +1,3 @@
-[[ $commands[fnm] ]] && eval $(fnm env)
 [[ -f /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
 
@@ -15,9 +14,10 @@ zsh_add_file $ZDOTDIR/completions/kubectl.zsh
 zsh_add_file $ZDOTDIR/.zshenv.local
 
 # fnm
-FNM_PATH="/opt/homebrew/opt/fnm/bin"
-if [ -d "$FNM_PATH" ]; then
-  eval "`fnm env`"
+if [[ -x /opt/homebrew/opt/fnm/bin/fnm ]]; then
+  eval "$(/opt/homebrew/opt/fnm/bin/fnm env --use-on-cd --shell zsh)"
+elif [[ $commands[fnm] ]]; then
+  eval "$(fnm env --use-on-cd --shell zsh)"
 fi
 
 export PATH=$PATH:/usr/local/bin:$HOME/.cargo/bin:$HOME/.opencode/bin:$HOME/.bun/bin:$HOME/.config/local/bin
