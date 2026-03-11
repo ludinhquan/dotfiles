@@ -182,6 +182,53 @@ local plugins = {
 			require("plugins.auto-session")
 		end,
 	},
+	{
+		"mason-org/mason.nvim",
+		dependencies = {
+			"mason-org/mason-lspconfig.nvim",
+			"neovim/nvim-lspconfig",
+		},
+		config = function()
+			require("plugins.lsp.mason")
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			{ "antosha417/nvim-lsp-file-operations", config = true },
+		},
+		config = function()
+			require("plugins.lsp.lspconfig")
+		end,
+	},
+	{
+		"nvimdev/lspsaga.nvim",
+		event = { "LspAttach" },
+		config = function()
+			require("plugins.lsp.lspsaga")
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+		dependencies = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+			"rafamadriz/friendly-snippets",
+			"onsails/lspkind.nvim",
+		},
+		config = function()
+			require("plugins.nvim-cmp")
+		end,
+	},
 	-- {
 	--   'neoclide/coc.nvim',
 	--   branch = 'release',

@@ -1,6 +1,3 @@
--- import lspconfig plugin
-local lspconfig = require("lspconfig")
-
 -- import cmp-nvim-lsp plugin
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -62,13 +59,13 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-lspconfig["ts_ls"].setup({
+vim.lsp.config("ts_ls", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configure lua server (with special settings)
-lspconfig["lua_ls"].setup({
+vim.lsp.config("lua_ls", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = { -- custom settings for lua
@@ -86,3 +83,18 @@ lspconfig["lua_ls"].setup({
 		},
 	},
 })
+
+vim.lsp.config("rust_analyzer", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+vim.lsp.config("prismals", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("prismals")

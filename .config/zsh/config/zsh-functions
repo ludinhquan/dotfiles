@@ -43,3 +43,33 @@ set_node_version() {
   fi
 }
 set_node_version
+
+c() {
+  local dir="/tmp"
+  local ts file
+
+  mkdir -p "$dir"
+  ts="$(date +%Y%m%d-%H%M%S)"
+  file="$dir/clip-$ts.png"
+
+  if command -v pngpaste >/dev/null 2>&1; then
+    pngpaste "$file" || return 1
+  elif command -v wl-paste >/dev/null 2>&1; then
+    wl-paste --type image/png > "$file" || return 1
+  elif command -v xclip >/dev/null 2>&1; then
+    xclip -selection clipboard -t image/png -o > "$file" || return 1
+  else
+    print -u2 "No clipboard image tool found (pngpaste / wl-paste / xclip)."
+    return 1
+  fi
+
+  if command -v pbcopy >/dev/null 2>&1; then
+    printf '%s' "$file" | pbcopy
+  elif command -v wl-copy >/dev/null 2>&1; then
+    printf '%s' "$file" | wl-copy
+  elif command -v xclip >/dev/null 2>&1; then
+    printf '%s' "$file" | xclip -selection clipboard
+  fi
+
+  print -r -- "$file"
+}
