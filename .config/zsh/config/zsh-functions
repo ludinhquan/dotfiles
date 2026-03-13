@@ -9,7 +9,7 @@ function kport(){
 }
 
 
-c() {
+i() {
   local dir="/tmp"
   local ts file
 

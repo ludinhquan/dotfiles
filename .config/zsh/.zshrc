@@ -20,4 +20,4 @@ elif [[ $commands[fnm] ]]; then
   eval "$(fnm env --use-on-cd --shell zsh)"
 fi
 
-export PATH=$PATH:/usr/local/bin:$HOME/.cargo/bin:$HOME/.opencode/bin:$HOME/.bun/bin:$HOME/.config/local/bin
+export PATH=$HOME/.local/bin:$PATH:/usr/local/bin:$HOME/.cargo/bin:$HOME/.opencode/bin:$HOME/.bun/bin:$HOME/.config/local/bin
