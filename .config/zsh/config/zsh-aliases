@@ -9,6 +9,10 @@ alias ......="cd ../../../../.."
 alias l="eza -l --icons --git -a"
 alias lt="eza --tree --level=2 --long --icons --git"
 alias ltree="eza --tree --level=2  --icons --git"
+ll() {
+  local target="${1:-.}"
+  nu -c "ls -a \"$target\" | select name type size modified"
+}
 
 alias vidotfiles="cd $HOME/dotfiles && nvim"
 

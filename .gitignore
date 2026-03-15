@@ -18,6 +18,7 @@
 !.config/wezterm
 !.config/starship
 !.config/gh-dash
+!.config/worktrunk
 !.config/karabiner.edn
 
 .config/tmux/plugins

@@ -21,3 +21,5 @@ elif [[ $commands[fnm] ]]; then
 fi
 
 export PATH=$HOME/.local/bin:$PATH:/usr/local/bin:$HOME/.cargo/bin:$HOME/.opencode/bin:$HOME/.bun/bin:$HOME/.config/local/bin
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
