@@ -31,6 +31,9 @@ bindkey -M menuselect '^xh' accept-and-hold                # Hold
 bindkey -M menuselect '^xn' accept-and-infer-next-history  # Next
 bindkey -M menuselect '^xu' undo                           # Undo
 
+# VI Mode!!!
+bindkey jk vi-cmd-mode
+
 # Change cursor shape for different vi modes.
 zle-keymap-select () {
     case $KEYMAP in

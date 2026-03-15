@@ -1,5 +1,14 @@
-alias ls='ls --color=auto -ACF'
-alias ll='ls --color=auto -alF'
+# Dirs
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+# Eza
+alias l="eza -l --icons --git -a"
+alias lt="eza --tree --level=2 --long --icons --git"
+alias ltree="eza --tree --level=2  --icons --git"
 
 alias vidotfiles="cd $HOME/dotfiles && nvim"
 
@@ -17,7 +26,4 @@ alias rm='rm -i'
 # open explorer
 alias e='xdg-open .'
 
-# kubectl
-alias k="kubectl"
 alias lz="lazygit"
-alias kcontext="kubectl config get-contexts"

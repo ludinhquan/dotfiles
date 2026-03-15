@@ -17,6 +17,7 @@
 !.config/ghostty
 !.config/wezterm
 !.config/starship
+!.config/gh-dash
 !.config/karabiner.edn
 
 .config/tmux/plugins
