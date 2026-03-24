@@ -15,9 +15,9 @@ zsh_add_file $ZDOTDIR/.zshenv.local
 
 # fnm
 if [[ -x /opt/homebrew/opt/fnm/bin/fnm ]]; then
-  eval "$(/opt/homebrew/opt/fnm/bin/fnm env --use-on-cd --shell zsh)"
+  eval "$(/opt/homebrew/opt/fnm/bin/fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 elif [[ $commands[fnm] ]]; then
-  eval "$(fnm env --use-on-cd --shell zsh)"
+  eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 fi
 
 export PATH=$HOME/.local/bin:$PATH:/usr/local/bin:$HOME/.cargo/bin:$HOME/.opencode/bin:$HOME/.bun/bin:$HOME/.config/local/bin
